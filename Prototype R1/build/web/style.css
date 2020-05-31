@@ -1,0 +1,193 @@
+
+
+html, body {
+    margin:0;
+    padding:0;
+    background: #F1F1F1;
+}
+
+
+.platform{
+    background: white;
+    margin: 5% 20% 5% 20%;
+    text-align: center;
+    padding: 1% 5% 5% 5%;
+    box-shadow: 5px 5px 20px grey;
+    border-radius: 20px;
+}
+
+
+.pagetitle{
+    font-size: 50px;
+    font-family: open sans;
+    color: #5A8EF6;
+}
+
+
+
+/* Header */
+.header{
+    background: #F65A5A;
+    height: 50%;
+    padding-bottom: 1%;
+    margin-top: 0px;
+
+}
+.headertext{
+    color: white;
+    font-family: open sans;
+    text-align: center;
+    font-size: 100px;
+
+}
+
+
+
+
+/* interface */
+.interfacetitle{
+    text-align: center;
+    font-size: 80px;
+    font-family: open sans;
+    color: white;
+}
+
+
+.interfacebutton{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 1%;
+    position: relative;
+    border-radius: 20px;
+    background: #5A8EF6;
+    color: black;
+}
+
+.interfacebuttonbuttontext{
+    font-size: 25px;
+    font-family: open sans;
+}
+    
+.maintable{
+        font-size: 40px;
+        font-family: open sans;
+        padding: 1% 20% 1% 20%;
+        table-layout: fixed ;
+        width: 100% ;
+        border-collapse: collapse;
+}
+    
+.maintable th{
+        background: #5A8EF6;
+        font-size: 30px;
+
+    }
+    
+.maintable td{
+        background: white;
+        font-size: 20px;
+        padding: 1%;
+    }
+    
+    
+.regulartextcenter{
+    font-size: 40px;
+    text-align: center;
+    font-family: open sans;
+    margin: 0% 5% 0% 5%;
+    }
+
+
+    
+    
+    
+/* Login & Register */
+.inputlabel{
+    display: block;
+    text-align: left;
+    margin-left: 24%;
+    font-size: 25px;
+    font-family: open sans;
+}
+
+.inputfield{
+    width: 50%;
+    padding: 1%;
+    font-size: 35px;
+    margin: 0% 0% 7% 0%;
+    border-radius: 20px;
+    background: #E6E6E6;
+    border: none;
+}
+
+.submitbutton{
+    width: 20%;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    margin: 0% 0% 0% 0%;
+    font-family: open sans;
+    padding: 3%;
+    border-radius: 20px;
+    background: #5A8EF6;
+    color: black;
+}
+
+
+/* Welcome & Main*/
+
+.regulartext{
+    font-size: 40px;
+    text-align: left;
+    font-family: open sans;
+    margin: 0% 5% 0% 5%;
+}
+
+.blueregulartext{
+    font-size: 40px;
+    text-align: left;
+    font-family: open sans;
+    margin: 0% 5% 0% 5%;
+    color: #5A8EF6;
+}
+
+.navbar{
+    text-align: center;
+    width: 100%;
+
+}
+
+.navbarbutton{
+    color: white;
+    font-size: 25px;
+    font-family: open sans;
+    position: relative;
+    border-radius: 20px;
+    background: #5A8EF6;
+    margin: 0% 1% 1% 1%;
+    padding: 30px;
+    width: 7em;
+    display: inline-block;
+}
+
+
+a:link {
+  color: black;
+  text-decoration: none;
+
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+}
+
+a:active {
+  text-decoration: bold;
+}
+
+
