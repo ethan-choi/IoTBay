@@ -16,39 +16,6 @@ Status varchar(20) NOT NULL,
 PRIMARY KEY(Email)
 );
 
-
-/*
-CREATE TABLE Customer
-(
-Customer_ID integer NOT NULL 
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-Mobile_Number varchar(10),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (Customer_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-
-CREATE TABLE Staff
-( 
-Staff_ID integer NOT NULL
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-Department varchar(20),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (Staff_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-
-CREATE TABLE System_Admin
-(
-System_Admin_ID integer NOT NULL
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-"ROLE" varchar(20),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (System_Admin_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-*/
-
 CREATE TABLE Product
 (
 Product_ID integer NOT NULL
