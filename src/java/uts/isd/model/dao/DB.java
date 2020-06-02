@@ -3,7 +3,7 @@ import java.sql.Connection;
 
 
 public abstract class DB {
-    protected String URL = "jdbc:derby://localhost:1527/iotdb";
+    protected String URL = "jdbc:derby://localhost:1527/";
     protected String db = "iotdb";//name of the database   
     protected String dbuser = "iotuser";//db root user   
     protected String dbpass = "admin"; //db root password   
