@@ -1,47 +1,59 @@
-  package uts.isd.controller;
+package uts.isd.controller;
 
- 
-
-  import java.io.IOException;
-     import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-     import java.util.logging.Level;
-     import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-     import javax.servlet.ServletException;
-     import javax.servlet.http.HttpServlet;
-     import javax.servlet.http.HttpServletRequest;
-     import javax.servlet.http.HttpServletResponse;
-     import javax.servlet.http.HttpSession;
-     import uts.isd.model.Student;
-     import uts.isd.model.accessLog;
-     import uts.isd.model.Student;
-     import uts.isd.model.dao.DBManager;
-     public class AccessLog extends HttpServlet {
-   
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import uts.isd.model.Student;
+import uts.isd.model.Student;
+import uts.isd.model.accessLog;
+import uts.isd.model.dao.DBManager;
 
-     @Override   
+public class AccessLog extends HttpServlet {
 
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {    
-         
-         
-         HttpSession session = request.getSession();
+    @Override
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String email = request.getParameter("email");
+        String date = request.getParameter("date");
+        String password = request.getParameter("password");
+        String status = "Inactive";
+
         DBManager manager = (DBManager) session.getAttribute("manager");
 
-        
-        
-  
-            ArrayList<Student> students = new ArrayList();
-            students.add(new Student ("bob", "bob","bob", "bob", "bob","bob"));
-            request.setAttribute("students", students);
-            request.getRequestDispatcher("accesslogs.jsp").include(request,response);
-                
-                
-  
-     }
-     }
+        ArrayList<accessLog> accesslogs = null;
+
+        Validator validator = new Validator();
+        validator.clear(session);
+
+        if (!validator.validateDate(date)) {
+            session.setAttribute("existErr", "The date must be in YYYY-MM-DD format");
+            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+
+        } else {
+            try {
+                accesslogs = manager.findAccessLog(email, date);
+                if (manager.checkAccessLogs(email, date) == false) {
+                    session.setAttribute("existErr", "No records on this date");
+                    request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+                }
+                else if (accesslogs != null) {
+                    session.setAttribute("accesslogs", accesslogs);
+                    request.getRequestDispatcher("accesslogResults.jsp").include(request, response);
+                }
+            } catch (SQLException | NullPointerException ex) {
+
+            }
+
+        }
+    }
+}

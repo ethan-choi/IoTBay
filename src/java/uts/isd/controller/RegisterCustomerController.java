@@ -35,17 +35,21 @@ public class RegisterCustomerController extends HttpServlet {
         
         
         
-                  
-       Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-        String stringTime = timeFormat.format(date);  
-        String stringDate = dateFormat.format(date);  
-         String time = stringTime;
-         String action = "Register";
-         
-         
-         
+        
+        
+        
+        
+        
+        
+        
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String stringTime = timeFormat.format(date);
+        String stringDate = dateFormat.format(date);
+        String time = stringTime;
+        String action = "Register";
+
         DBManager manager = (DBManager) session.getAttribute("manager");
         validator.clear(session);
 
@@ -64,7 +68,7 @@ public class RegisterCustomerController extends HttpServlet {
         } else {
             try {
                 Student exist = manager.findUserEmailOnly(email);
-                if (exist != null ) {
+                if (exist != null) {
                     session.setAttribute("existErr", "User already has an account");
                     request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
                 } else {
@@ -72,8 +76,8 @@ public class RegisterCustomerController extends HttpServlet {
                     Student student = new Student(name, email, password, number, status, role);
                     session.setAttribute("student", student);
                     request.getRequestDispatcher("main.jsp").include(request, response);
-                   manager.addAccessLog(stringDate, time, action, email);
-                 accessLog accesslog = new accessLog (date, time, action, email);
+                    manager.addAccessLog(stringDate, time, action, email);
+                    accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
 
             } catch (SQLException | NullPointerException ex) {

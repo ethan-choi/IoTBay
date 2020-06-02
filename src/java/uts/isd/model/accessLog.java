@@ -13,23 +13,23 @@ import java.util.Date;
  */
 public class accessLog {
 
-    private Date date;
+    private String date;
     private String time;
     private String action;
     private String email;
 
-    public accessLog(Date date, String time, String action, String email) {
+    public accessLog(String date, String time, String action, String email) {
         this.date = date;
         this.time = time;
         this.action = action;
         this.email = email;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

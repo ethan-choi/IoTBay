@@ -35,7 +35,7 @@ public class RegisterStaffController extends HttpServlet {
 
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String stringTime = timeFormat.format(date);
         String stringDate = dateFormat.format(date);
         String time = stringTime;
@@ -71,7 +71,7 @@ public class RegisterStaffController extends HttpServlet {
                     session.setAttribute("student", student);
                     request.getRequestDispatcher("main.jsp").include(request, response);
                     manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(date, time, action, email);
+                    accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
 
             } catch (SQLException | NullPointerException ex) {

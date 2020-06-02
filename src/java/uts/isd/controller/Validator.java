@@ -12,6 +12,8 @@ public class Validator implements Serializable {
     private String passwordPattern = "[a-z0-9]{5,}";
     private String numberPattern = "^\\d{10}$";
     private String accessKey = "123";
+    private String datePattern = "^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$";
+    
 
     public Validator() {
     }
@@ -44,7 +46,10 @@ public class Validator implements Serializable {
 
     public boolean validateNumber(String number) {
         return validate(numberPattern, number);
-
+    }
+    
+    public boolean validateDate(String date){
+        return validate (datePattern, date);
     }
 
     public void clear(HttpSession session) {

@@ -56,7 +56,7 @@ import java.util.Calendar;
 
              try {
                  manager.addAccessLog(stringDate, time, action, email);
-                 accessLog accesslog = new accessLog (date, time, action, email);
+                 accessLog accesslog = new accessLog (stringDate, time, action, email);
              
              } catch (SQLException | NullPointerException ex) {
              System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");

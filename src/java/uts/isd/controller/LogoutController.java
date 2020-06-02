@@ -30,7 +30,7 @@ import java.util.Date;
          String email = request.getParameter("email");
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String stringTime = timeFormat.format(date);
         String stringDate = dateFormat.format(date);
         String time = stringTime;
@@ -49,9 +49,7 @@ import java.util.Date;
                 Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
                      }
              
-             
-             session.invalidate();
-             request.getRequestDispatcher("index.jsp").include(request, response);
+
              
              }
          }

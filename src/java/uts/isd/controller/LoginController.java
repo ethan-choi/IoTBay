@@ -22,13 +22,14 @@ public class LoginController extends HttpServlet {
 
     @Override
 
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
 
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String stringTime = timeFormat.format(date);
         String stringDate = dateFormat.format(date);
         String time = stringTime;
@@ -54,7 +55,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("student", student);
                     request.getRequestDispatcher("main.jsp").include(request, response);
                     manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(date, time, action, email);
+                    accessLog accesslog = new accessLog(stringDate, time, action, email);
                 } else {
                     session.setAttribute("existErr", "Invalid email/password combination");
                     request.getRequestDispatcher("login.jsp").include(request, response);
