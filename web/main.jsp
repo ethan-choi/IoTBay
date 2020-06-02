@@ -60,18 +60,19 @@
                 
                 <table class="maintable">
                 <thead>
-                    <th colspan="2" >Account Actions</th>
+                    <th colspan="2" >Account Management</th>
                 </thead>
                 </table>
                 
-               <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
-               <a href="accesslogs.jsp"> <p class="standardbutton"> Access logs </p> </a>
-               <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
-                
-                
+
                
-                
-         
+             
+               <form action="AllAccessLogsController">
+               <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
+                <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
+               <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
+
+            </form>
         </div>
     </body> 
 </html>

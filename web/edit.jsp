@@ -51,6 +51,8 @@
               <label for="number" class="inputlabel">Mobile Number</label><br>
               <input type="text" id="number" name="number" class="inputfield" value="${student.number}" required><br>
               
+              <input type="hidden" id="role" name="role" class="inputfield" value="${student.role}" required><br>
+              
               
             <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
               <input type="submit" value="Update" class="updatebutton">

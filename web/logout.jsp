@@ -36,7 +36,7 @@
                
                <p class ="pagetitle"> Are you sure you want to logout? </p>
                <br>
-              <input type="text" id="email" name="email" value="${student.email}" class="inputfield" required readonly> <br>
+              <input type="hidden" id="email" name="email" value="${student.email}" class="inputfield" required readonly> <br>
 
               <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
               

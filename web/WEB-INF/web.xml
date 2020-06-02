@@ -44,6 +44,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>uts.isd.controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AllAccessLogsController</servlet-name>
+        <servlet-class>uts.isd.controller.AllAccessLogsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllAccessLogsController</servlet-name>
+        <url-pattern>/AllAccessLogsController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -41,14 +41,13 @@
             <form action="DeleteUserController">
                       
                
-               <p class ="bodytext"> You are about to delete </p>
                 
-              <input type="text" id="email" name="email" value="${student.email}" class="inputfield" required readonly> <br>
+              <input type="hidden" id="email" name="email" value="${student.email}" class="inputfield" required readonly> <br>
 
               
-              <p class ="bodytext"> Are you sure you want to delete your account? </p>
-              <p class ="bodytext"> All orders associated with this account will be cancelled. Your personal information, delivery address information and payment information will be deleted. </p>
-              <p class ="bodytext"> Once you delete your account, you won't be able to retrieve it later. </p>
+              <p class="bodytext"> Are you sure you want to delete your account? </p>
+              <p class="bodytext"> All orders associated with this account will be cancelled. Your personal information, delivery address information and payment information will be deleted. </p>
+              <p class="bodytext"> Once you delete your account, you won't be able to retrieve it later. </p>
               
               <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
               
