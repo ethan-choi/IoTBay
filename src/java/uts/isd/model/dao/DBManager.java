@@ -15,7 +15,7 @@ public class DBManager {
     }
 
     public Student findUser(String email, String password) throws SQLException {
-        String fetch = "select * from ISDUSER.Users where EMAIL = '" + email + "' and PASSWORD = '" + password + "'";
+        String fetch = "select * from iotuser.Users where EMAIL = '" + email + "' and PASSWORD = '" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -33,7 +33,7 @@ public class DBManager {
     }
 
     public Student findUserEmailOnly(String email) throws SQLException {
-        String fetch = "select * from ISDUSER.Users where EMAIL = '" + email + "'";
+        String fetch = "select * from iotuser.Users where EMAIL = '" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -51,20 +51,20 @@ public class DBManager {
     }
 
     public void addUser(String name, String email, String password, String number, String status, String role) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDUSER.Users " + "VALUES ('" + name + "', '" + email + "', '" + password + "', '" + number + "',  '" + status + "',  '" + role + "')");
+        st.executeUpdate("INSERT INTO iotuser.Users " + "VALUES ('" + name + "', '" + email + "', '" + password + "', '" + number + "',  '" + status + "',  '" + role + "')");
 
     }
 
     public void updateUser(String name, String email, String password, String number, String status, String role) throws SQLException {
-        st.executeUpdate("UPDATE ISDUSER.Users SET NAME='" + name + "',PASSWORD='" + password + "',number='" + number + "',status='" + status + "', ROLE='" + role + "' WHERE EMAIL='" + email + "'");
+        st.executeUpdate("UPDATE iotuser.Users SET NAME='" + name + "',PASSWORD='" + password + "',number='" + number + "',status='" + status + "', ROLE='" + role + "' WHERE EMAIL='" + email + "'");
     }
 
     public void deleteUser(String email) throws SQLException {
-        st.executeUpdate("DELETE FROM  ISDUSER.Users WHERE EMAIL = '" + email + "'");
+        st.executeUpdate("DELETE FROM  iotuser.Users WHERE EMAIL = '" + email + "'");
     }
 
     public void updateUserStatus(String email, String status) throws SQLException {
-        st.executeUpdate("UPDATE ISDUSER.Users SET STATUS='" + status + "' WHERE EMAIL='" + email + "'");
+        st.executeUpdate("UPDATE iotuser.Users SET STATUS='" + status + "' WHERE EMAIL='" + email + "'");
     }
 
     public ArrayList<Student> fetchStudents() throws SQLException {
@@ -86,7 +86,7 @@ public class DBManager {
     }
 
     public boolean checkUser(String email, String password) throws SQLException {
-        String fetch = "select * from ISDUSER.Users where EMAIL = '" + email + "' and password = '" + password + "'";
+        String fetch = "select * from iotuser.Users where EMAIL = '" + email + "' and password = '" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -101,7 +101,7 @@ public class DBManager {
     }
 
     public void addAccessLog(String date, String time, String action, String email) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDUSER.ACCESSLOG " + "VALUES ('" + date + "', '" + time + "', '" + action + "', '" + email + "')");
+        st.executeUpdate("INSERT INTO iotuser.ACCESSLOG " + "VALUES ('" + date + "', '" + time + "', '" + action + "', '" + email + "')");
 
     }
 
@@ -122,7 +122,7 @@ public class DBManager {
     }
 
     public ArrayList<accessLog> findAccessLog(String email, String date) throws SQLException {
-        String fetch = "select * from ISDUSER.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
+        String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<accessLog> temp = new ArrayList();
 
@@ -139,7 +139,7 @@ public class DBManager {
     }
 
     public boolean checkAccessLogs(String email, String date) throws SQLException {
-        String fetch = "select * from ISDUSER.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
+        String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -169,7 +169,7 @@ public class DBManager {
     }
 
     public ArrayList<accessLog> listAccessLogsUser(String email) throws SQLException {
-        String fetch = "select * from ISDUSER.accesslog where EMAIL = '" + email + "'";
+        String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<accessLog> temp = new ArrayList();
 
