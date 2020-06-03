@@ -7,50 +7,14 @@
 
 CREATE TABLE Users
 (
+Name varchar(20) NOT NULL,
 Email varchar(30) NOT NULL,
 Password varchar(16) NOT NULL,
-First_Name varchar(20) NOT NULL,
-Last_Name varchar(20) NOT NULL,
+"NUMBER" varchar(10) NOT NULL,
 Status varchar(20) NOT NULL,
-"Role" varchar(20) NOT NULL,
+"ROLE" varchar(20) NOT NULL,
 PRIMARY KEY(Email)
 );
-
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 9e1d81c... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
-/*
-CREATE TABLE Customer
-(
-Customer_ID integer NOT NULL 
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-Mobile_Number varchar(10),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (Customer_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-
-CREATE TABLE Staff
-( 
-Staff_ID integer NOT NULL
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-Department varchar(20),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (Staff_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-
-CREATE TABLE System_Admin
-(
-System_Admin_ID integer NOT NULL
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-"ROLE" varchar(20),
-Email varchar(30) NOT NULL UNIQUE,
-PRIMARY KEY (System_Admin_ID),
-FOREIGN KEY (Email) REFERENCES Users(Email)
-);
-*/
 
 CREATE TABLE Product
 (
@@ -120,17 +84,12 @@ FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID),
 FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID)
 );
 
-CREATE TABLE Access_Log
+CREATE TABLE AccessLog
 (
-Access_ID integer NOT NULL
-    GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-Activities varchar(255),
-Login_Time time,
-Login_Date date,
-Logout_Time time,
-Logout_Date date,
-Email varchar(30),
-PRIMARY KEY (Access_ID),
+"DATE" varchar(10) NOT NULL,
+"TIME"  varchar(10) NOT NULL,
+"ACTION"  varchar(10) NOT NULL,
+Email varchar(30) NOT NULL,
 FOREIGN KEY (Email) REFERENCES Users(Email)
 );
 

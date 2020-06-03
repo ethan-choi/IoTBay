@@ -48,22 +48,6 @@
         <servlet-name>AllAccessLogsController</servlet-name>
         <servlet-class>uts.isd.controller.AllAccessLogsController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>DeviceCatalogue</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceCatalogue</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeviceAddServlet</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceAddServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeviceDeleteServlet</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceDeleteServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeviceUpdateServlet</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceUpdateServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -111,22 +95,6 @@
     <servlet-mapping>
         <servlet-name>AllAccessLogsController</servlet-name>
         <url-pattern>/AllAccessLogsController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeviceCatalogue</servlet-name>
-        <url-pattern>/DeviceCatalogue</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeviceAddServlet</servlet-name>
-        <url-pattern>/DeviceAddServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeviceDeleteServlet</servlet-name>
-        <url-pattern>/DeviceDeleteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeviceUpdateServlet</servlet-name>
-        <url-pattern>/DeviceUpdateServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
