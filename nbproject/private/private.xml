@@ -3,16 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ProductValidator.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/tableIOTdb.sql</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/Validator.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readUsers.sql</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/TestDB.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readProducts.sql</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/main.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/catalogueDevice.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/searchDevice.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/index.jsp</file>
+            <file>file:/C:/Users/Jackie%20Lim/Desktop/Science%20in%20IT/2020/Semester%201%20-%20Autumn/Introduction%20to%20Software%20Development/assessment%202%20-%20R1/IoTBay/src/java/uts/isd/model/dao/DBManager.java</file>
+            <file>file:/C:/Users/Jackie%20Lim/Desktop/Science%20in%20IT/2020/Semester%201%20-%20Autumn/Introduction%20to%20Software%20Development/assessment%202%20-%20R1/IoTBay/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>
