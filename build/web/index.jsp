@@ -26,6 +26,9 @@
             <a href="registerOption.jsp"> <p class="interfacebutton"> Register </p> </a>
 
 
+                        <p class="regulartextcenter"> or </p>
+            <a href="catalogueDevice.jsp"> <p class="interfacebutton"> Catalogue </p> </a>
+
 
 
         </div>
