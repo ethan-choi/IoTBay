@@ -65,12 +65,17 @@
                 </table>
                 
 
-               
-             
                 <form action="AllAccessLogsController">
                 <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
+
+
+               
+             
+               <form action="AllAccessLogsController">
+               <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
+
                 <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
-                <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
+               <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
 
             </form>
         </div>
