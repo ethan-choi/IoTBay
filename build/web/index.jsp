@@ -29,7 +29,9 @@
                         <p class="regulartextcenter"> or </p>
             <a href="catalogueDevice.jsp"> <p class="interfacebutton"> Catalogue </p> </a>
 
-
+            <form action="DeviceCatalogue">
+                <button type="submit" value="Open"> Device Catalogue </button>
+            </form>
 
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>
