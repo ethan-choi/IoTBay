@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Student;
+import uts.isd.model.Student;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
