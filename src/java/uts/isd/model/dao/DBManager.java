@@ -1,9 +1,9 @@
 package uts.isd.model.dao;
 
-import uts.isd.model.Student;
 import java.sql.*;
 import java.util.ArrayList;
 import uts.isd.model.Student;
+import uts.isd.model.Product;
 import uts.isd.model.accessLog;
 
 public class DBManager {
@@ -183,4 +183,92 @@ public class DBManager {
         return temp;
     }
 
+    /* Database Manager --> Product */
+    
+    // Cread (CREATE)
+    public void addProduct(String name, double price, String manufacturer, String type, int quantity_in_stock) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTUSER.PRODUCT(NAME, PRICE, MANUFACTURER, TYPE, QUANTITY_IN_STOCK)" + "VALUES ('" + name + "', " + price + ", '" + manufacturer + "', '" + type + "', " + quantity_in_stock + ")"); 
+    }
+    
+    // Read
+    public Product findProduct(String name, String type) throws SQLException {
+        String read = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME = '" + name + "' AND TYPE='" + type + "'";
+        ResultSet rs = st.executeQuery(read);
+        while(rs.next()) {
+            String productName = rs.getString(2);
+            String productType = rs.getString(5);
+            if(productName.equals(name) && productType.equals(type)) {
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                return new Product(productName, productPrice, productManufacturer, productType, productQuantity);
+            }
+        }
+        return null;
+    }
+    
+    // Update
+    public void updateProduct(String name, double price, String manufacturer, String type, int quantity) throws SQLException {
+        st.executeUpdate("UPDATE IOTUSER.PRODUCT SET PRICE=" + price + ", MANUFACTURER='" + manufacturer + "', TYPE='" + type + "', QUANTITY_IN_STOCK=" + quantity + " WHERE NAME='" + name + "'");
+    }
+    
+    // Delete
+    public void deleteProduct(String name) throws SQLException {
+        st.executeUpdate("DELETE FROM IOTUSER.PRODUCT WHERE NAME='" + name + "'");
+    }
+    
+    // Fetch / Show Catalogue
+    public ArrayList<Product> fetchProducts() throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while(rs.next()) {
+            Long product_id = rs.getLong(1);
+            String name = rs.getString(2);
+            double price = rs.getDouble(3);
+            String manufacturer = rs.getString(4); 
+            String type = rs.getString(5);
+            int quantity = rs.getInt(6);
+            temp.add(new Product(product_id, name, price, manufacturer, type, quantity));
+        }
+        return temp;
+    }
+    
+    // Search Product / Device
+    public ArrayList<Product> findProductList(String name, String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "' AND TYPE='" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+        
+        while(rs.next()) {
+            String productName = rs.getString(2);
+            String productType = rs.getString(5);
+            if(productName.equals(name) && productType.equals(type)) {
+                Long product_id = rs.getLong(1);    
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                temp.add(new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity));
+            }
+        }
+        return temp;
+    }
+    
+    // CHECK
+    public boolean checkProduct(String name, String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "' AND TYPE='" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            String productType = rs.getString(5);
+            if (productName.equals(name) && productType.equals(type)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
 }

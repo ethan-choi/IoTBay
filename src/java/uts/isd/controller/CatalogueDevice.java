@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IoTBay.controller;
+package uts.isd.controller;
 
-import IoTBay.model.Product;
-import IoTBay.model.dao.DBManager;
+import uts.isd.model.Product;
+import uts.isd.model.dao.DBManager;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
