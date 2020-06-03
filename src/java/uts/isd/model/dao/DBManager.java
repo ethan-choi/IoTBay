@@ -1,7 +1,11 @@
 package uts.isd.model.dao;
 
+<<<<<<< HEAD
 
 
+=======
+import uts.isd.model.Student;
+>>>>>>> parent of ae76793... some device jsps
 import java.sql.*;
 import java.util.ArrayList;
 import uts.isd.model.Student;
@@ -184,6 +188,7 @@ public class DBManager {
 
         return temp;
     }
+<<<<<<< HEAD
     
     
     public void addProduct(String name, double price, String manufacturer, String type, int quantity_in_stock) throws SQLException {
@@ -269,5 +274,7 @@ public class DBManager {
         return false;
     }
     
+=======
+>>>>>>> parent of ae76793... some device jsps
 
 }

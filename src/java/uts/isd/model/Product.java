@@ -1,4 +1,4 @@
-package uts.isd.model;
+package IoTBay.model;
 
 import java.io.Serializable;
 

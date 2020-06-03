@@ -1,6 +1,18 @@
+<<<<<<< HEAD:src/java/uts/isd/controller/DeviceCatalogue.java
 
 package uts.isd.controller;
 
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package IoTBay.controller;
+
+import IoTBay.model.Product;
+import IoTBay.model.dao.DBManager;
+>>>>>>> parent of ae76793... some device jsps:src/java/uts/isd/controller/CatalogueDevice.java
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
