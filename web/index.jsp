@@ -1,6 +1,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.isd.model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +26,9 @@
             <p class="regulartextcenter"> or </p>
             <a href="registerOption.jsp"> <p class="interfacebutton"> Register </p> </a>
 
-
+            <form action="DeviceCatalogue">
+                <button type="submit" value="Open"> Device Catalogue </button>
+            </form>
 
 
         </div>

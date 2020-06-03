@@ -64,9 +64,6 @@
                 </thead>
                 </table>
                 
-
-               
-             
                 <form action="AllAccessLogsController">
                 <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
