@@ -28,6 +28,9 @@ public class DeviceSearchServlet extends HttpServlet {
         String name = request.getParameter("name");
         String type = request.getParameter("type");
         
+        String choiceS = request.getParameter("search");
+        String choiceSA = request.getParameter("searchagain");
+  
         DBManager manager = (DBManager) session.getAttribute("manager");
         
         ArrayList<Product> deviceSearching = null;
