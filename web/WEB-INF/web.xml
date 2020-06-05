@@ -68,6 +68,14 @@
         <servlet-name>DeviceDeleteServlet</servlet-name>
         <servlet-class>uts.isd.controller.DeviceDeleteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeviceSearchServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeviceResetController</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceResetController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -135,6 +143,14 @@
     <servlet-mapping>
         <servlet-name>DeviceDeleteServlet</servlet-name>
         <url-pattern>/DeviceDeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceSearchServlet</servlet-name>
+        <url-pattern>/DeviceSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceResetController</servlet-name>
+        <url-pattern>/DeviceResetController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

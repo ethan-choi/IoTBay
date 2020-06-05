@@ -39,40 +39,40 @@ public class DeviceUpdateServlet extends HttpServlet {
         ValidatorDevice validator = new ValidatorDevice();
         validator.clear(session);
 
-        if(validator.checkFields(name, type, price, manufacturer, quantity)) {    
-            session.setAttribute("updated", "Please enter all fields");
+       if(validator.checkFields(name, type, price, manufacturer, quantity)) {    
+            session.setAttribute("existErr", "Please enter all fields");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validateName(name)) {
-            session.setAttribute("updated", "");
-            session.setAttribute("nameErr", "Error: Name format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("nameErr", "Name format is incorrect");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validatePrice(price)) {
-            session.setAttribute("updated", "");
-            session.setAttribute("priceErr", "Error: Price format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("priceErr", "Price format is incorrect");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validateManufacturer(manufacturer)) {
-            session.setAttribute("updated", "");
-            session.setAttribute("manufacturerErr", "Error: Manufacturer format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("manufacturerErr", "Manufacturer format is incorrect");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validateType(type)) {
-            session.setAttribute("updated", "");
-            session.setAttribute("typeErr", "Error: Type format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("typeErr", "Type format is incorrect");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validateQuantity(quantity)) {
-            session.setAttribute("updated", "");
-            session.setAttribute("quantityErr", "Error: Quantity format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("quantityErr", "Quantity format is incorrect");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else {
             try {
                 Product exist = manager.findProduct(name, type);
                 if (exist == null) {
-                    session.setAttribute("updated", "Device does not exist");
+                    session.setAttribute("existErr", "Device does not exist");
                     request.getRequestDispatcher("deviceUpdate.jsp").include(request,response);
                 } else {
                     Product product = new Product(name, Double.parseDouble(price), manufacturer, type, Integer.parseInt(quantity));
                     session.setAttribute("product", product);
                     manager.updateProduct(name, Double.parseDouble(price), manufacturer, type, Integer.parseInt(quantity));
-                    session.setAttribute("updated", "Update was successful");
+                    session.setAttribute("success", "Update was successful");
                     request.getRequestDispatcher("deviceUpdate.jsp").include(request,response);
                 }
             } catch (SQLException ex) {
@@ -80,6 +80,6 @@ public class DeviceUpdateServlet extends HttpServlet {
             }
             response.sendRedirect("deviceUpdate.jsp");
         }
-    }         
+    }          
 
 }

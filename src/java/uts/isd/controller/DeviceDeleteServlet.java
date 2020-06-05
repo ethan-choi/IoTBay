@@ -29,22 +29,26 @@ public class DeviceDeleteServlet extends HttpServlet {
         validator.clear(session);
         
         if(validator.checkEmpty(name, type)) {
-            session.setAttribute("deleted", "Please enter a device name.");
+            session.setAttribute("existErr", "Please enter all fields");
             request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
         } else if(!validator.validateName(name)) {
-            session.setAttribute("deleted", "");
-            session.setAttribute("nameErr", "Error: name format is incorrect");
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("nameErr", "Name format is incorrect");
+            request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
+        } else if(!validator.validateType(type)) {
+            session.setAttribute("existErr", "Error found, please try again");
+            session.setAttribute("typeErr", "Type format is incorrect");
             request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
         } else {
             try {
                Product exist = manager.findProduct(name, type);
                if (exist == null) {
-                   session.setAttribute("deleted", "Device does not exist");
-                   request.getRequestDispatcher("deviceDelete.jsp.jsp").include(request, response);
+                   session.setAttribute("existErr", "Device does not exist");
+                   request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
                } else {
                    session.setAttribute("product", exist);
                    manager.deleteProduct(name);
-                   session.setAttribute("deleted", "Delete was successful");
+                   session.setAttribute("success", "Delete was successful");
                    request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
                }
             } catch (SQLException ex) {

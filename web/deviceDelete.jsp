@@ -10,35 +10,50 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Delete Device</title>
     </head>
     <body>
         <% 
-            String deleted = (String)session.getAttribute("deleted");
-            
+            String success = (String)session.getAttribute("success");
+            String existErr = (String) session.getAttribute("existErr");
             String nameErr = (String) session.getAttribute("nameErr");
             String typeErr = (String) session.getAttribute("typeErr");
         %>
         
-        <h1>Delete Device: <span> <%=(deleted !=null ? deleted : "")%></span></h1>     
-        <div>
-            <a href="DeviceCatalogue">GO BACK TO CATALOGUE</a>
+        <div class="header"> .<p class="headertext"> IoT Bay </p>
+            <div class="navbar">
+                <a href="main.jsp" class="navbarbutton">Main</a>
+                <a href="logout.jsp" class="navbarbutton">Logout</a>
+            </div>
         </div>
         
-        <form method="post" action="DeviceDeleteServlet" >
-            <table>  
-                <tr>
-                    <td><label for="name">Device Name</label></td>
-                    <td><input type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name" required></td>
-                </tr>
-                <tr>
-                    <td><label for="type">Device Type</label></td>
-                    <td><input type="text" placeholder="<%=(typeErr != null ? typeErr : "Enter type")%>" id="type" name="type" required></td>
-                </tr>
-                <tr>
-                    <td><input class="button" type="submit" value="Delete"></td>
-                </tr>
-            </table>
-        </form>
+        <div class="platform">
+            <p class="pagetitle">Delete Device</p>
+            
+            <br>
+            <span class="invalid"> <%=(existErr != null ? existErr : "")%> </span>
+            <span class="success"> <%=(success != null ? success : "")%> </span>
+            
+            <div class="form">
+                <form method="post" action="DeviceDeleteServlet" >
+                    <table class="maintable">  
+                        <tr>
+                            <td><label class="inputlabel" for="name">Device Name</label></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td><label class="inputlabel" for="type">Device Type</label></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(typeErr != null ? typeErr : "Enter type")%>" id="type" name="type"></td>
+                        </tr>
+                    </table>
+                        
+                    <a href="DeviceCatalogue"><p class="standardbutton">Cancel</p></a>  
+                    
+                    <input class="submitbutton" type="submit" value="Delete">
+
+                </form>
+            </div>
+        </div>
     </body>
 </html>

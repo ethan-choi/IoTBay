@@ -58,5 +58,6 @@ public class ValidatorDevice implements Serializable {
         session.setAttribute("typeErr", "Enter type:");
         session.setAttribute("quantityErr", "Enter quantity:");
         session.setAttribute("existErr", "");
+        session.setAttribute("success", "");
     }
 }

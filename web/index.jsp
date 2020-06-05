@@ -1,5 +1,4 @@
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,26 +10,18 @@
     </head>
     <body>
 
-
         <div class="header"> .<p class="headertext"> IoT Bay </p></div> 
-
-
 
         <div class="platform">
 
-
             <a href="login.jsp"> <p class="interfacebutton"> Login </p> </a>
-
-
+            
             <p class="regulartextcenter"> or </p>
             <a href="registerOption.jsp"> <p class="interfacebutton"> Register </p> </a>
 
-
-                        <p class="regulartextcenter"> or </p>
-            <a href="catalogueDevice.jsp"> <p class="interfacebutton"> Catalogue </p> </a>
-
+            <p class="regulartextcenter"> or </p>
             <form action="DeviceCatalogue">
-                <button type="submit" value="Open"> Device Catalogue </button>
+                <button class="interfacebutton" type="submit" value="Open">Catalogue</button>
             </form>
 
         </div>
