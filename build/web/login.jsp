@@ -24,7 +24,10 @@
             String activateErr = (String) session.getAttribute("activateErr");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 
             String number = "hi";
         %>
@@ -60,6 +63,9 @@
             <p class="invalid"><%=(activateErr != null ? activateErr : "")%></p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 

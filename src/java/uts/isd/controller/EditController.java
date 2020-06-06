@@ -30,6 +30,7 @@ public class EditController extends HttpServlet {
 
     @Override
     
+<<<<<<< HEAD
 >>>>>>> parent of a91034c... User Access Log Management
 =======
 //Purpose of this controller is to obtain the user's current details
@@ -41,6 +42,8 @@ public class EditController extends HttpServlet {
     @Override
     
 >>>>>>> parent of a91034c... User Access Log Management
+=======
+>>>>>>> parent of a91034c... User Access Log Management
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -48,6 +51,7 @@ public class EditController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -73,6 +77,8 @@ public class EditController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======

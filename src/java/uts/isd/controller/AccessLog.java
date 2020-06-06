@@ -46,6 +46,9 @@ public class AccessLog extends HttpServlet {
                     request.getRequestDispatcher("accesslogs.jsp").include(request, response);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
                 } else if (accesslogs != null) {

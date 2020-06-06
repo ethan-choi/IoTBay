@@ -27,6 +27,9 @@ public class RegisterStaffController extends HttpServlet {
         Validator validator = new Validator();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
         DBManager manager = (DBManager) session.getAttribute("manager");
@@ -55,6 +58,9 @@ public class RegisterStaffController extends HttpServlet {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
         //Check to see if staff access key is correct and validate that the user is an actual staff member
@@ -62,8 +68,11 @@ public class RegisterStaffController extends HttpServlet {
         //In reality, the key would be more complex and be given to staff members in person by their manager
         //If key is incorrect, deny access and redirect them to registerStaff.jsp
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
         if (!validator.validateAccessKey(accesskey)) {

@@ -36,6 +36,7 @@
     </body>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <%
         Student student = (Student) session.getAttribute("student");
         String updated = (String) session.getAttribute("updated");
@@ -53,6 +54,8 @@
     </div>
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
         
