@@ -16,9 +16,20 @@ import uts.isd.model.Student;
 import uts.isd.model.dao.DBManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class EditController extends HttpServlet {
 
     @Override
+=======
+//Purpose of this controller is to obtain the user's current details
+
+
+
+public class EditController extends HttpServlet {
+
+    @Override
+    
+>>>>>>> parent of a91034c... User Access Log Management
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -26,6 +37,7 @@ public class EditController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DBManager manager = (DBManager) session.getAttribute("manager");
+<<<<<<< HEAD
 
         Student student = null;
         try {
@@ -49,6 +61,8 @@ public class EditController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         
         
         //Get current email and password from session
