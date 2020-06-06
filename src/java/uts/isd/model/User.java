@@ -2,12 +2,10 @@ package uts.isd.model;
 
 import java.io.Serializable;
 
-/**
- *
- * @author ethan
- */
-public class Student implements Serializable {
+public class User implements Serializable {
 
+    
+    //Variables
     private String name;
     private String email;
     private String password;
@@ -15,7 +13,10 @@ public class Student implements Serializable {
     private String status;
     private String role;
 
-    public Student(String name, String email, String password, String number, String status, String role) {
+    
+    
+    //Constructor
+    public User(String name, String email, String password, String number, String status, String role) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -24,6 +25,8 @@ public class Student implements Serializable {
         this.role = role;
     }
 
+    
+    //Getters + setters
     public String getName() {
         return name;
     }
