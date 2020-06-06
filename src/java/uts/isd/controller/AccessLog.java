@@ -45,6 +45,9 @@ public class AccessLog extends HttpServlet {
                     session.setAttribute("existErr", "No records on this date");
                     request.getRequestDispatcher("accesslogs.jsp").include(request, response);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
                 } else if (accesslogs != null) {
 =======
                 }

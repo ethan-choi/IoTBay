@@ -23,6 +23,23 @@
             String passErr = (String) session.getAttribute("passErr");
             String activateErr = (String) session.getAttribute("activateErr");
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+            String number = "hi";
+        %>
+
+
+        <!--header -->
+        <div class="header"> .<p class="headertext"> IoT Bay </p>
+
+            <div class="navbar">
+                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+            </div>
+        </div>
+>>>>>>> parent of a91034c... User Access Log Management
 
             String number = "hi";
 =======
@@ -42,6 +59,9 @@
             <p class="invalid"><%=(emailErr != null ? emailErr : "")%></p>
             <p class="invalid"><%=(activateErr != null ? activateErr : "")%></p>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 
             <!--Login form -->
             <div class="form">

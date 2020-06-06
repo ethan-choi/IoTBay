@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 
 
 <%@page import="uts.isd.model.User"%>
@@ -20,6 +23,9 @@
     <body>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
     <!-- Import variables-->
         <%
             User user = (User) session.getAttribute("user");

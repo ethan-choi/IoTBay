@@ -26,6 +26,9 @@ public class RegisterCustomerController extends HttpServlet {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         //Get email, password, name and number from form
@@ -57,6 +60,7 @@ public class RegisterCustomerController extends HttpServlet {
         String action = "Register";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         validator.clear(session);
 
         //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
@@ -65,6 +69,11 @@ public class RegisterCustomerController extends HttpServlet {
         validator.clear(session);
 
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+        validator.clear(session);
+
+        //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
+>>>>>>> parent of a91034c... User Access Log Management
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);

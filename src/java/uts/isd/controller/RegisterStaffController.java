@@ -26,6 +26,9 @@ public class RegisterStaffController extends HttpServlet {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         //Get inputs from form
@@ -51,12 +54,18 @@ public class RegisterStaffController extends HttpServlet {
         validator.clear(session);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         //Check to see if staff access key is correct and validate that the user is an actual staff member
         //For the purpose of this assignment, it is 123
         //In reality, the key would be more complex and be given to staff members in person by their manager
         //If key is incorrect, deny access and redirect them to registerStaff.jsp
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         if (!validator.validateAccessKey(accesskey)) {
             session.setAttribute("accessErr", "Invalid staff access key");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
