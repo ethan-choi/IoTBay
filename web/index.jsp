@@ -8,28 +8,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    
-    
-
     <body>
-         <div class="header"> .<p class="headertext"> IoT Bay </p>
-       
-         <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-               <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-               <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
-        </div>
-        </div>
 
+        <div class="header"> .<p class="headertext"> IoT Bay </p></div> 
 
         <div class="platform">
-            <p class="pagetitle"> Welcome to IoT Bay </p>
 
-            <form action="DeviceCatalogue">
-                <button class="interfacebutton" type="submit" value="Open"> Catalogue</button>
-            </form>
+            <a href="login.jsp"> <p class="interfacebutton"> Login </p> </a>
             
-  
+            <p class="regulartextcenter"> or </p>
+            <a href="registerOption.jsp"> <p class="interfacebutton"> Register </p> </a>
+
+            <p class="regulartextcenter"> or </p>
+            <form action="DeviceCatalogue">
+                <button class="interfacebutton" type="submit" value="Open">Catalogue</button>
+            </form>
 
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>

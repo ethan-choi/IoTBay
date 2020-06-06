@@ -11,13 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.User;
+import uts.isd.model.Student;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
-
-//Purpose of this servlet is to obtain all access logs for a specific account which is identified by email
-
-
 
 public class AllAccessLogsController extends HttpServlet {
 
@@ -26,25 +22,27 @@ public class AllAccessLogsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        DBManager manager = (DBManager) session.getAttribute("manager");
-        
-        
-        //get current session email address
         String email = request.getParameter("email");
+        String date = request.getParameter("date");
+        String password = request.getParameter("password");
+        String status = "Inactive";
 
+        DBManager manager = (DBManager) session.getAttribute("manager");
 
-        //create Array List to store access logs results
         ArrayList<accessLog> accesslogsall = null;
 
-        try {
-            //call on listAccessLogsUser method and store results in Array List
-            accesslogsall = manager.listAccessLogsUser(email);
-            
-            //send results to session
-            session.setAttribute("accesslogsall", accesslogsall);
-            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+        Validator validator = new Validator();
+        validator.clear(session);
 
-        } catch (SQLException | NullPointerException ex) {
+            try {
+                accesslogsall = manager.listAccessLogsUser(email);
+                session.setAttribute("accesslogsall", accesslogsall);
+                request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+                
+            } catch (SQLException | NullPointerException ex) {
+
+            }
+
         }
     }
-}
+
