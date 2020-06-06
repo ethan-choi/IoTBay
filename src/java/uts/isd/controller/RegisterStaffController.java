@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Student;
-import uts.isd.model.Student;
+import uts.isd.model.User;
+import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
+//Purpose of this controller is to allow staff members to create a new account with the IoT Bay System
 public class RegisterStaffController extends HttpServlet {
 
     @Override
@@ -25,6 +26,9 @@ public class RegisterStaffController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
+        DBManager manager = (DBManager) session.getAttribute("manager");
+
+        //Get inputs from form
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
@@ -33,6 +37,7 @@ public class RegisterStaffController extends HttpServlet {
         String status = "Active";
         String role = "Staff";
 
+        //Convert current date/time to seperate date and time string variables
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -41,12 +46,17 @@ public class RegisterStaffController extends HttpServlet {
         String time = stringTime;
         String action = "Register";
 
-        DBManager manager = (DBManager) session.getAttribute("manager");
         validator.clear(session);
 
+        //Check to see if staff access key is correct and validate that the user is an actual staff member
+        //For the purpose of this assignment, it is 123
+        //In reality, the key would be more complex and be given to staff members in person by their manager
+        //If key is incorrect, deny access and redirect them to registerStaff.jsp
         if (!validator.validateAccessKey(accesskey)) {
             session.setAttribute("accessErr", "Invalid staff access key");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
+
+            //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
         } else if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
@@ -59,17 +69,25 @@ public class RegisterStaffController extends HttpServlet {
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
+
+            //if inputs are valid
         } else {
             try {
-                Student exist = manager.findUserEmailOnly(email);
+                //find user using findUserEmailOnly and store in exist variable
+                User exist = manager.findUserEmailOnly(email);
                 if (exist != null) {
+                    //if user already exists, display error and return to registerStaff.jsp
                     session.setAttribute("existErr", "User already has an account");
                     request.getRequestDispatcher("registerStaff.jsp").include(request, response);
                 } else {
+
+                    //if user does not exist, create new user
                     manager.addUser(name, email, password, number, status, role);
-                    Student student = new Student(name, email, password, number, status, role);
+                    User student = new User(name, email, password, number, status, role);
                     session.setAttribute("student", student);
                     request.getRequestDispatcher("main.jsp").include(request, response);
+
+                    //create access log to record register action
                     manager.addAccessLog(stringDate, time, action, email);
                     accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Student;
+import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
@@ -44,8 +44,7 @@ public class AccessLog extends HttpServlet {
                 if (manager.checkAccessLogs(email, date) == false) {
                     session.setAttribute("existErr", "No records on this date");
                     request.getRequestDispatcher("accesslogs.jsp").include(request, response);
-                }
-                else if (accesslogs != null) {
+                } else if (accesslogs != null) {
                     session.setAttribute("accesslogs", accesslogs);
                     request.getRequestDispatcher("accesslogResults.jsp").include(request, response);
                 }

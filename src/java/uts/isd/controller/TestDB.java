@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.logging.*;
 import uts.isd.model.dao.DBConnector;
 import uts.isd.model.dao.DBManager;
-import uts.isd.model.Student;
+import uts.isd.model.User;
 
 public class TestDB {
 
@@ -50,9 +50,6 @@ public class TestDB {
                     break;
                 case 'd':
                     testDelete();
-                    break;
-                case 's':
-                    showAll();
                     break;
                 case 'l':
                     addAccessLog();
@@ -110,7 +107,7 @@ public class TestDB {
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Student added");
+        System.out.println("User added");
     }
 
     private void testRead() throws SQLException {
@@ -119,12 +116,12 @@ public class TestDB {
         System.out.print("User password: ");
         String password = in.nextLine();
 
-        Student student = db.findUser(email, password);
+        User user = db.findUser(email, password);
 
-        if (student != null) {
-            System.out.println("Student " + student.getName() + "exists in database.");
+        if (user != null) {
+            System.out.println("User " + user.getName() + "exists in database.");
         } else {
-            System.out.println("Student does not exist");
+            System.out.println("User does not exist");
         }
     }
 
@@ -145,7 +142,7 @@ public class TestDB {
                 String status = "active";
                 db.updateUser(name, email, password, number, status, role);
             } else {
-                System.out.println("Student does not exist");
+                System.out.println("User does not exist");
             }
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,24 +159,12 @@ public class TestDB {
             if (db.checkUser(email, password)) {
                 db.deleteUser(email);
             } else {
-                System.out.println("Student does not exist");
+                System.out.println("User does not exist");
             }
         } catch (SQLException ex) {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void showAll() {
-        try {
-            ArrayList<Student> students = db.fetchStudents();
-            System.out.println("Students Table: ");
-            students.stream().forEach((student) -> {
-                System.out.printf("%-20s %-30s %-20s %-10s \n", student.getName(), student.getEmail(), student.getPassword(), student.getNumber());
-            });
-        } catch (SQLException ex) {
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
 }

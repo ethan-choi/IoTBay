@@ -13,20 +13,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Student;
+import uts.isd.model.User;
 import uts.isd.model.accessLog;
-import uts.isd.model.Student;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
+
+
+//Purpose of this controller is to allow users to login to the system
 public class LoginController extends HttpServlet {
 
     @Override
-
-    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
 
+        DBManager manager = (DBManager) session.getAttribute("manager");
+        
+        //Get email and password from session
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        
+        
+        //Convert current date/time to seperate date and time string variables
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -35,28 +44,34 @@ public class LoginController extends HttpServlet {
         String time = stringTime;
         String action = "Login";
 
-        DBManager manager = (DBManager) session.getAttribute("manager");
-        Student student = null;
+
+        User user = null;
         validator.clear(session);
 
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        
 
+        //validate to ensure that email address and password fields have appropriate inputs. If not, return to login.jsp and display error
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("login.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Your password must have more than 3 letters and/or numbers and no spaces");
             request.getRequestDispatcher("login.jsp").include(request, response);
+            
+        //if inputs are valid:
         } else {
             try {
-                student = manager.findUser(email, password);
-                if (student != null && student.getStatus().equals("Active")) {
-                    session.setAttribute("student", student);
+                //call on findUser method and store in user variable
+                user = manager.findUser(email, password);
+                //Pass on user's details and allow entry to main page if the user is active(not deleted)
+                if (user != null && user.getStatus().equals("Active")) {
+                    session.setAttribute("user", user);
                     request.getRequestDispatcher("main.jsp").include(request, response);
+                    //create login access log
                     manager.addAccessLog(stringDate, time, action, email);
                     accessLog accesslog = new accessLog(stringDate, time, action, email);
                 } else {
+                    //return error and redirect to login.jsp if email does not match password in database
                     session.setAttribute("existErr", "Invalid email/password combination");
                     request.getRequestDispatcher("login.jsp").include(request, response);
                 }

@@ -35,11 +35,6 @@ html, body {
     margin: 7% 24% 0% 24%;
 }
 
-.line{
-   border: 1px solid grey;
-   margin: 0% 24% 0% 24%;
-
-}
 
 .notastaff:hover{
     color: blue;
@@ -229,6 +224,28 @@ html, body {
     border-color: blue;
     color: white;
 }
+
+
+.navBarButton{
+    width: 10%;
+    font-size: 20px;
+    text-decoration: none;
+    border-style: solid;
+    border-color: #5A8EF6;
+    margin: 0% 0% 0% 0%;
+    font-family: open sans;
+    padding: 1%;
+    border-radius: 10px;
+    background: white;
+    color: #5A8EF6;
+    display: inline-block;
+    
+}
+.navBarButton:hover{
+    background: blue;
+    border-color: blue;
+    color: white;
+}
 .standardbutton{
     width: 20%;
     font-size: 20px;
@@ -338,17 +355,32 @@ html, body {
 }
 
 .navbarbutton{
-    color: white;
-    font-size: 25px;
+    width: 20%;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 5%;
     font-family: open sans;
-    position: relative;
-    border-radius: 20px;
+    padding: 1%;
+    border-radius: 10px;
     background: #5A8EF6;
-    margin: 0% 1% 1% 1%;
-    padding: 30px;
-    width: 7em;
+    color: white;
     display: inline-block;
+    margin-right: 0%;
+    border-style: solid;
+    border-color: #5A8EF6;
 }
+
+.loginstatus{
+    display: inline-block;
+float: right;
+}
+
+.submitbutton:hover{
+    background: blue;
+    border-color: blue;
+}
+
+
 
 /* Edit */
 a:link {

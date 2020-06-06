@@ -1,8 +1,10 @@
-<%@page import="uts.isd.model.Student"%>
+<%@page import="uts.isd.model.User"%>
 <%@page import="uts.isd.model.accessLog"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
+<!-- Purpose of this page is to display account information and provide link to other account actions -->
 <html>
     <head>
         <title>Main</title>
@@ -10,63 +12,73 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body>
 
+
+    <body>
+        <!-- Import variables -->
         <%
-            Student student = (Student) session.getAttribute("student");
+            User user = (User) session.getAttribute("user");
             accessLog accesslog = (accessLog) session.getAttribute("accessLog");
         %>
-        
+
+
+        <!-- Header -->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
-        
+
             <div class="navbar">
-                <a href="main.jsp" class="navbarbutton"> Main</a>
-                <a href="logout.jsp" class="navbarbutton"> Logout</a>
+                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                <a href="logout.jsp"> <p class="navBarButton"> Log Out </p> </a>
             </div>
-            
         </div>   
-        
-            <div class="platform">
-                <p class="pagetitle">Welcome, ${student.name}</p>
-                                
-                <table class="maintable">
+
+
+
+        <!-- Content-->
+        <div class="platform">
+            <p class="pagetitle">Welcome, ${user.name}</p>
+
+
+            <!-- User details table-->
+            <table class="maintable">
                 <thead>
-                    <th colspan="2" >Account Information</th>
+                <th colspan="2" >Account Information</th>
                 </thead>
                 <tr>
                     <td>Email</td>
-                    <td>${student.email}</td>
+                    <td>${user.email}</td>
                 </tr>
                 <tr>
                     <td>Name</td>
-                    <td>${student.name}</td>
+                    <td>${user.name}</td>
                 </tr>
-                 <tr>
+                <tr>
                     <td>Password</td>
-                    <td>${student.password}</td>
+                    <td>${user.password}</td>
                 </tr>
                 <tr>
                     <td>Mobile Number</td>
-                    <td>${student.number}</td>
+                    <td>${user.number}</td>
                 </tr>
                 <tr>
                     <td>Account Type</td>
-                    <td>${student.role}</td>
+                    <td>${user.role}</td>
                 </tr>
 
-                </table>
-                
-                <table class="maintable">
-                <thead>
-                    <th colspan="2" >Account Management</th>
-                </thead>
-                </table>
- 
-                <form action="AllAccessLogsController">
-                <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
-                <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
-                <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
+            </table>
 
+
+            <!--Various buttons for different user actions -->
+            <table class="maintable">
+                <thead>
+                <th colspan="2" >Account Management</th>
+                </thead>
+            </table>
+            <form action="AllAccessLogsController">
+                <a href="EditController?email='<%= user.getEmail()%>' &password = ' <%= user.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
+                <button type="submit" name="email" value="${user.email}" class="standardbutton">   Access Logs </button>
+                <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
             </form>
         </div>
     </body> 

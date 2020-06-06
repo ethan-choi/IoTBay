@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.Student;
-import uts.isd.model.Student;
+import uts.isd.model.User;
+import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
+//Purpose of this controller is to allow customers to register a new account
 public class RegisterCustomerController extends HttpServlet {
 
     @Override
@@ -25,23 +26,19 @@ public class RegisterCustomerController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
+        DBManager manager = (DBManager) session.getAttribute("manager");
+
+        //Get email, password, name and number from form
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String number = request.getParameter("number");
+
+        //set account as active and customer
         String role = "Customer";
         String status = "Active";
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        //Convert current date/time to seperate date and time string variables
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -50,9 +47,9 @@ public class RegisterCustomerController extends HttpServlet {
         String time = stringTime;
         String action = "Register";
 
-        DBManager manager = (DBManager) session.getAttribute("manager");
         validator.clear(session);
 
+        //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
@@ -65,21 +62,27 @@ public class RegisterCustomerController extends HttpServlet {
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
+
+            //If inputs are ok
         } else {
             try {
-                Student exist = manager.findUserEmailOnly(email);
+
+                User exist = manager.findUserEmailOnly(email);
                 if (exist != null) {
+                    //check to see if email is already associated with an existing IoT account. If so, return user to registerCustomer.jsp
                     session.setAttribute("existErr", "User already has an account");
                     request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
                 } else {
+                    //if account does not exist, create new account and pass onto session
                     manager.addUser(name, email, password, number, status, role);
-                    Student student = new Student(name, email, password, number, status, role);
+                    User student = new User(name, email, password, number, status, role);
                     session.setAttribute("student", student);
                     request.getRequestDispatcher("main.jsp").include(request, response);
+
+                    //create register access log
                     manager.addAccessLog(stringDate, time, action, email);
                     accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
-
             } catch (SQLException | NullPointerException ex) {
                 Logger.getLogger(RegisterCustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
