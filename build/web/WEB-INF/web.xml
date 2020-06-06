@@ -76,6 +76,10 @@
         <servlet-name>DeviceResetController</servlet-name>
         <servlet-class>uts.isd.controller.DeviceResetController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeviceEditServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>DeviceResetController</servlet-name>
         <url-pattern>/DeviceResetController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceEditServlet</servlet-name>
+        <url-pattern>/DeviceEditServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

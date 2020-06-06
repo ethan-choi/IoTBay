@@ -45,7 +45,7 @@
                     <table class="maintable">  
                         <tr>
                             <td><label class="inputlabel" for="name">Device Name</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name" value="${product.name}"></td>
                         </tr>
                         <tr>
                             <td><label class="inputlabel" for="price">Price</label></td>
@@ -68,7 +68,7 @@
                         </tr>
                     </table>
                         
-                    <a href="DeviceCatalogue"><p class="standardbutton">Cancel</p></a>
+                    <a href="DeviceCatalogue"><p class="alternateOption">Cancel</p></a>
                     <input class="submitbutton" type="submit" value="Update">
                     
                 </form> 

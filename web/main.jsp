@@ -66,8 +66,13 @@
                 <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
                 <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
-
-            </form>
+                </form>
+                
+                <form action="DeviceCatalogue">
+                    <button class="standardbutton" type="submit" name="email" value="${student.email}">Catalogue</button>
+                </form>
+                
+                    
         </div>
     </body> 
 </html>

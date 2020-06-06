@@ -43,6 +43,7 @@ import java.util.Date;
              try {
                     manager.addAccessLog(stringDate, time, action, email);
                     session.setAttribute("student", student);
+                    session.invalidate();
                     request.getRequestDispatcher("index.jsp").include(request, response);
 
              } catch (SQLException | NullPointerException ex) {

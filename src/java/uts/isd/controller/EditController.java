@@ -18,15 +18,6 @@ import uts.isd.model.dao.DBManager;
 public class EditController extends HttpServlet {
 
     @Override
-
-    
-    
-    
-    
-    
-   
-    
-    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -43,7 +34,7 @@ public class EditController extends HttpServlet {
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else {
                 session.setAttribute("existErr", "Student does not exist in the database!");
-                request.getRequestDispatcher("edit.jsp)").include(request, response);
+                request.getRequestDispatcher("edit.jsp").include(request, response);
             }
         } catch (SQLException ex) {
             Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);

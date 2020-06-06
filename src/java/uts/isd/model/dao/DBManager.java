@@ -99,7 +99,7 @@ public class DBManager {
         return false;
 
     }
-
+ 
     public void addAccessLog(String date, String time, String action, String email) throws SQLException {
         st.executeUpdate("INSERT INTO iotuser.ACCESSLOG " + "VALUES ('" + date + "', '" + time + "', '" + action + "', '" + email + "')");
 
@@ -182,6 +182,21 @@ public class DBManager {
 
         return temp;
     }
+    
+    //-- Check User's Role --\\
+       
+    public String checkRole(String email) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.USERS WHERE EMAIL = '" + email + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+            String userEmail = rs.getString(2);
+            if (userEmail.equals(email)) {
+                return rs.getString(6);
+            }
+        }
+        return null;
+    }
 
     //-- Product / Device Database Manager --\\
     
@@ -204,7 +219,25 @@ public class DBManager {
         }
         return null;
     }
-    
+    /*
+        public Product findProductID(Long id) throws SQLException {
+        String strID = Long.toString(id);
+        String read = "SELECT * FROM IOTUSER.PRODUCT WHERE PRODUCT_ID= '" + strID + "'";
+        ResultSet rs = st.executeQuery(read);
+        while(rs.next()) {
+            Long product_id = rs.getLong(1);
+            if (product_id == id) {
+                String productName = rs.getString(2);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                String productType = rs.getString(5);
+                int productQuantity = rs.getInt(6);
+                return new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity);
+            }
+        }
+        return null;
+    }
+    */
     public void updateProduct(String name, double price, String manufacturer, String type, int quantity) throws SQLException {
         st.executeUpdate("UPDATE IOTUSER.PRODUCT SET PRICE=" + price + ", MANUFACTURER='" + manufacturer + "', TYPE='" + type + "', QUANTITY_IN_STOCK=" + quantity + " WHERE NAME='" + name + "'");
     }
