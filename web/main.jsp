@@ -17,17 +17,15 @@
             accessLog accesslog = (accessLog) session.getAttribute("accessLog");
         %>
         
-        
         <div class="header"> .<p class="headertext"> IoT Bay </p>
         
-                <div class="navbar">
-        <a href="main.jsp" class="navbarbutton"> Main</a>
-        <a href="logout.jsp" class="navbarbutton"> Logout</a>
-
-        </div>
+            <div class="navbar">
+                <a href="main.jsp" class="navbarbutton"> Main</a>
+                <a href="logout.jsp" class="navbarbutton"> Logout</a>
+            </div>
+            
+        </div>   
         
-        
-        </div>            
             <div class="platform">
                 <p class="pagetitle">Welcome, ${student.name}</p>
                                 
@@ -63,10 +61,7 @@
                     <th colspan="2" >Account Management</th>
                 </thead>
                 </table>
-                
-
-               
-             
+ 
                 <form action="AllAccessLogsController">
                 <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>

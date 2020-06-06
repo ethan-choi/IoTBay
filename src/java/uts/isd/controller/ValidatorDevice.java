@@ -1,5 +1,4 @@
 
-
 package uts.isd.controller;
 
 import java.io.Serializable;
@@ -9,20 +8,19 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Jackie Lim ([A-Za-z0-9()+'/\".-]+[\\s])+[A-Za-z0-9()+'/\".-]*
+ * @author Jackie Lim 
  * Created: 31/05/2020
  */ 
-public class ProductValidator { 
+public class ValidatorDevice implements Serializable { 
     private String namePattern = "([a-zA-Z0-9+,'\"/._-]+[\\s])*[a-zA-Z0-9+,'\"/._-]*"; 
     private String pricePattern = "^[0-9]+(\\.[0-9]{1,2})?$";
     private String manufacturerPattern = "([a-zA-Z0-9+,'\"/._-]+[\\s])*[a-zA-Z0-9+,'\"/._-]*";
     private String typePattern = "([a-zA-Z0-9+,'\"/._-]+[\\s])*[a-zA-Z0-9+,'\"/._-]*";
     private String quantityPattern = "([0-9]+)";
               
-    public ProductValidator(){   
+    public ValidatorDevice(){   
     }       
-
-    // Boolean function that matches input against a pattern using Pattern & Matcher classes from "java.util.regex"
+    
     public boolean validate(String pattern, String input){       
        Pattern regEx = Pattern.compile(pattern);       
        Matcher match = regEx.matcher(input);       
@@ -60,5 +58,6 @@ public class ProductValidator {
         session.setAttribute("typeErr", "Enter type:");
         session.setAttribute("quantityErr", "Enter quantity:");
         session.setAttribute("existErr", "");
+        session.setAttribute("success", "");
     }
 }
