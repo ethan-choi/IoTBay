@@ -16,11 +16,8 @@ public class DBManager {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
     public Student findUser(String email, String password) throws SQLException {
 =======
-=======
->>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
     //Find a user using email and password
