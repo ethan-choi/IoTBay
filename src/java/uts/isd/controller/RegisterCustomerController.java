@@ -25,7 +25,7 @@ public class RegisterCustomerController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
+        Validator validator = new Validator();
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         //Get email, password, name and number from form
@@ -47,13 +47,10 @@ public class RegisterCustomerController extends HttpServlet {
         String time = stringTime;
         String action = "Register";
 
-
+        validator.clear(session);
 
         //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
-        if (validator.checkEmptyCustomerRegister(email, password, name, number)) {
-            session.setAttribute("emptyErrUam", "Please enter all fields");
-            request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
-        } else if (!validator.validateEmail(email)) {
+        if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
@@ -90,6 +87,5 @@ public class RegisterCustomerController extends HttpServlet {
                 Logger.getLogger(RegisterCustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        validator.clear(session);
     }
 }

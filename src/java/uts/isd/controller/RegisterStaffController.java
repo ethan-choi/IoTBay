@@ -25,7 +25,7 @@ public class RegisterStaffController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
+        Validator validator = new Validator();
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         //Get inputs from form
@@ -48,15 +48,11 @@ public class RegisterStaffController extends HttpServlet {
 
         validator.clear(session);
 
-        if (validator.checkEmptyStaffRegister(accesskey, email, password, name, number)) {
-            session.setAttribute("emptyErrUam", "Please enter all fields");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
-
-            //Check to see if staff access key is correct and validate that the user is an actual staff member
-            //For the purpose of this assignment, it is 123
-            //In reality, the key would be more complex and be given to staff members in person by their manager
-            //If key is incorrect, deny access and redirect them to registerStaff.jsp
-        } else if (!validator.validateAccessKey(accesskey)) {
+        //Check to see if staff access key is correct and validate that the user is an actual staff member
+        //For the purpose of this assignment, it is 123
+        //In reality, the key would be more complex and be given to staff members in person by their manager
+        //If key is incorrect, deny access and redirect them to registerStaff.jsp
+        if (!validator.validateAccessKey(accesskey)) {
             session.setAttribute("accessErr", "Invalid staff access key");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
 
@@ -100,6 +96,5 @@ public class RegisterStaffController extends HttpServlet {
                 Logger.getLogger(RegisterStaffController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-            validator.clear (session);
     }
 }

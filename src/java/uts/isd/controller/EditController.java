@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.Student;
 import uts.isd.model.dao.DBManager;
 
+<<<<<<< HEAD
 public class EditController extends HttpServlet {
 
     @Override
@@ -35,6 +36,39 @@ public class EditController extends HttpServlet {
             } else {
                 session.setAttribute("existErr", "Student does not exist in the database!");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
+=======
+//Purpose of this controller is to obtain the user's current details
+
+
+
+public class EditController extends HttpServlet {
+
+    @Override
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        DBManager manager = (DBManager) session.getAttribute("manager");
+        
+        
+        //Get current email and password from session
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        //Define user variable
+        User user = null;
+        try {
+            //Call on findUser method and store result in user variable
+            user = manager.findUser(email, password);
+            if (user != null) {
+                //If a result is found, return user to session
+                session.setAttribute("user", user);
+                request.getRequestDispatcher("edit.jsp").include(request, response);
+            } else {
+                //if no result is found, return error
+                session.setAttribute("existErr", "User does not exist in the database!");
+                request.getRequestDispatcher("edit.jsp)").include(request, response);
+>>>>>>> parent of a91034c... User Access Log Management
             }
         } catch (SQLException ex) {
             Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);
