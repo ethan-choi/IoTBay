@@ -28,6 +28,9 @@ public class RegisterStaffController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -59,6 +62,9 @@ public class RegisterStaffController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -69,8 +75,11 @@ public class RegisterStaffController extends HttpServlet {
         //If key is incorrect, deny access and redirect them to registerStaff.jsp
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======

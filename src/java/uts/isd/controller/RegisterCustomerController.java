@@ -28,6 +28,9 @@ public class RegisterCustomerController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -65,6 +68,7 @@ public class RegisterCustomerController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         validator.clear(session);
 
         //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
@@ -73,6 +77,11 @@ public class RegisterCustomerController extends HttpServlet {
         validator.clear(session);
 
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+        validator.clear(session);
+
+        //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
+>>>>>>> parent of a91034c... User Access Log Management
 =======
         validator.clear(session);
 

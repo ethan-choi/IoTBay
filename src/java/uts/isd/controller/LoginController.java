@@ -21,6 +21,9 @@ import uts.isd.model.dao.DBManager;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -61,6 +64,9 @@ public class LoginController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -72,6 +78,7 @@ public class LoginController extends HttpServlet {
         
 
         //validate to ensure that email address and password fields have appropriate inputs. If not, return to login.jsp and display error
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -87,6 +94,8 @@ public class LoginController extends HttpServlet {
 >>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
+=======
+>>>>>>> parent of a91034c... User Access Log Management
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("login.jsp").include(request, response);
@@ -96,10 +105,15 @@ public class LoginController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
         //if inputs are valid:
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+            
+        //if inputs are valid:
+>>>>>>> parent of a91034c... User Access Log Management
 =======
             
         //if inputs are valid:

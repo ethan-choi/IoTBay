@@ -14,10 +14,13 @@ import uts.isd.model.User;
 import uts.isd.model.User;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import uts.isd.model.Student;
 import uts.isd.model.Student;
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+>>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
@@ -34,11 +37,17 @@ public class UpdateController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         DBManager manager = (DBManager) session.getAttribute("manager");
         
         //Get data from fields
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+        DBManager manager = (DBManager) session.getAttribute("manager");
+        
+        //Get data from fields
+>>>>>>> parent of a91034c... User Access Log Management
 =======
         DBManager manager = (DBManager) session.getAttribute("manager");
         
@@ -55,6 +64,7 @@ public class UpdateController extends HttpServlet {
         String number = request.getParameter("number");
         String status = "Active";
         String role = request.getParameter("role");
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -82,11 +92,19 @@ public class UpdateController extends HttpServlet {
         //Store new data in a variable
         User student = new User(name, email, password, number, status, role);
 >>>>>>> parent of a91034c... User Access Log Management
+=======
+        
+        //Store new data in a variable
+        User student = new User(name, email, password, number, status, role);
+>>>>>>> parent of a91034c... User Access Log Management
 
         try {
             if (student != null) {
                 //Update information using updateUser, return success message and redirect to edit.jsp
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of a91034c... User Access Log Management
+=======
 >>>>>>> parent of a91034c... User Access Log Management
 =======
 >>>>>>> parent of a91034c... User Access Log Management
@@ -98,9 +116,13 @@ public class UpdateController extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //if not successful, return error message and redirect to edit.jsp
 =======
 >>>>>>> parent of 161e73b... Merge branch 'master' of https://github.com/ethan-choi/IoTBay
+=======
+                //if not successful, return error message and redirect to edit.jsp
+>>>>>>> parent of a91034c... User Access Log Management
 =======
                 //if not successful, return error message and redirect to edit.jsp
 >>>>>>> parent of a91034c... User Access Log Management
