@@ -60,11 +60,18 @@
                 <thead>
                     <th colspan="2" >Account Management</th>
                 </thead>
+<<<<<<< HEAD
                 </table>
  
                 <form action="AllAccessLogsController">
                 <a href="EditController?email='<%= student.getEmail() %>' &password = ' <%= student.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${student.email}" class="standardbutton">   Access Logs </button>
+=======
+            </table>
+            <form action="AllAccessLogsController">
+                <a href="EditController?email='<%= user.getEmail()%>' &password = ' <%= user.getPassword()%>'"> <p class="standardbutton"> Edit details </p> </a>
+                <button type="submit" name="email" value="${user.email}" class="standardbutton">   Access Logs </button>
+>>>>>>> parent of a91034c... User Access Log Management
                 <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
                 </form>
                 

@@ -20,7 +20,8 @@
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
             String activateErr = (String) session.getAttribute("activateErr");
-            String emptyErrUam =  (String) session.getAttribute("emptyErrUam");
+
+            String number = "hi";
         %>
 
 
@@ -44,15 +45,15 @@
             <p class="invalid"><%=(passErr != null ? passErr : "")%> </p>
             <p class="invalid"><%=(emailErr != null ? emailErr : "")%></p>
             <p class="invalid"><%=(activateErr != null ? activateErr : "")%></p>
-            <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>
+
             <!--Login form -->
             <div class="form">
                 <form action="LoginController" method="post">
                     <label for="email" class="inputlabel">Email Address</label><br>
-                    <input type="text" id="fname"  name="email" class="inputfield" ><br>
+                    <input type="text" id="fname"  name="email" class="inputfield" required><br>
 
                     <label for="password" class="inputlabel">Password</label><br>
-                    <input type="password" id="fname" name="password" class="inputfield" ><br>
+                    <input type="password" id="fname" name="password" class="inputfield" required   ><br>
 
                     <a href="registerOption.jsp"> <p class="alternateOption"> Register instead </p> </a>
                     <input type="submit" value="Login" class="submitbutton" >

@@ -14,7 +14,18 @@ public class DBManager {
         st = conn.createStatement();
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     public Student findUser(String email, String password) throws SQLException {
+=======
+=======
+>>>>>>> parent of a91034c... User Access Log Management
+=======
+>>>>>>> parent of a91034c... User Access Log Management
+    //Find a user using email and password
+    public User findUser(String email, String password) throws SQLException {
+>>>>>>> parent of a91034c... User Access Log Management
         String fetch = "select * from iotuser.Users where EMAIL = '" + email + "' and PASSWORD = '" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
