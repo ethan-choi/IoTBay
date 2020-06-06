@@ -16,35 +16,35 @@ import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
 //Purpose of this controller is to obtain the user's current details
-
-
-
 public class EditController extends HttpServlet {
 
     @Override
-    
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
-        
-        
-        //Get current email and password from session
+        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
+
+        //Get current details from session
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String number = request.getParameter("number");
 
         //Define user variable
         User user = null;
+
         try {
-            //Call on findUser method and store result in user variable
+            // user findUser method to match email/password to db. If a match, store user info in user variable
             user = manager.findUser(email, password);
             if (user != null) {
-                //If a result is found, return user to session
+                //if user is found, send to session
                 session.setAttribute("user", user);
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             } else {
-                //if no result is found, return error
-                session.setAttribute("existErr", "User does not exist in the database!");
+                //if user is not found, send error
+                session.setAttribute("existErr", "user does not exist in the database!");
                 request.getRequestDispatcher("edit.jsp)").include(request, response);
             }
         } catch (SQLException ex) {

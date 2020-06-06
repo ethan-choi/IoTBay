@@ -15,6 +15,7 @@ import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
+//Purpose of this controller is the search for access logs according to a date
 public class AccessLog extends HttpServlet {
 
     @Override
@@ -22,28 +23,36 @@ public class AccessLog extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
+
+        //Get current email from session and date from form
         String email = request.getParameter("email");
         String date = request.getParameter("date");
-        String password = request.getParameter("password");
-        String status = "Inactive";
 
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         ArrayList<accessLog> accesslogs = null;
 
-        Validator validator = new Validator();
         validator.clear(session);
 
-        if (!validator.validateDate(date)) {
+        //Check to see if search query fields are empty
+        if (validator.checkEmptyAccessLog(date)) {
+            session.setAttribute("emptyErrUam", "Please enter all fields");
+            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+        } else if (!validator.validateDate(date)) {
+            //Error if date is not in YYYY-MM-DD format
             session.setAttribute("existErr", "The date must be in YYYY-MM-DD format");
             request.getRequestDispatcher("accesslogs.jsp").include(request, response);
 
         } else {
             try {
+                //Find access logs in db and store in accesslogs list
                 accesslogs = manager.findAccessLog(email, date);
+                //Error if no dates exist on the specified date
                 if (manager.checkAccessLogs(email, date) == false) {
                     session.setAttribute("existErr", "No records on this date");
                     request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+                    //Return access logs list to session
                 } else if (accesslogs != null) {
                     session.setAttribute("accesslogs", accesslogs);
                     request.getRequestDispatcher("accesslogResults.jsp").include(request, response);
@@ -53,5 +62,6 @@ public class AccessLog extends HttpServlet {
             }
 
         }
+        validator.clear(session);
     }
 }

@@ -18,23 +18,20 @@ import uts.isd.model.accessLog;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
 
-
-
 //Purpose of this controller is to allow users to login to the system
 public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
 
         DBManager manager = (DBManager) session.getAttribute("manager");
-        
+
         //Get email and password from session
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
-        
+
         //Convert current date/time to seperate date and time string variables
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -44,21 +41,21 @@ public class LoginController extends HttpServlet {
         String time = stringTime;
         String action = "Login";
 
-
         User user = null;
         validator.clear(session);
 
-        
-
         //validate to ensure that email address and password fields have appropriate inputs. If not, return to login.jsp and display error
-        if (!validator.validateEmail(email)) {
+        if (validator.checkEmptyLogin(email, password)) {
+            session.setAttribute("emptyErrUam", "Please enter all fields");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Your email address must include @ and .");
             request.getRequestDispatcher("login.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Your password must have more than 3 letters and/or numbers and no spaces");
             request.getRequestDispatcher("login.jsp").include(request, response);
-            
-        //if inputs are valid:
+
+            //if inputs are valid:
         } else {
             try {
                 //call on findUser method and store in user variable
@@ -79,5 +76,6 @@ public class LoginController extends HttpServlet {
                 System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
             }
         }
+        validator.clear(session);
     }
 }

@@ -21,10 +21,11 @@
             User user = (User) session.getAttribute("user");
             String updated = (String) session.getAttribute("updated");
             String existErr = (String) session.getAttribute("existErr");
+            String emptyErrUam = (String) session.getAttribute("emptyErrUam");
             ArrayList<accessLog> accesslogsall = (ArrayList<accessLog>) session.getAttribute("accesslogsall");
         %>
 
-        
+
         <!-- Header -->
         <div class="header">.
             <p class="headertext"> IoT Bay </p>
@@ -35,26 +36,28 @@
             </div>
         </div>
 
-        
+
         <!--Content -->
         <div class="platform">
 
-            
+
             <!--Search access log bar -->
             <p class="pagetitle"> Search </p>
             <p class="invalid"> <%=(existErr != null ? existErr : "")%>  </p>
+            <p class="invalid"> <%=(emptyErrUam != null ? emptyErrUam : "")%>  </p>
+            
+            
             <div class="form">
                 <form action="AccessLog">             
                     <label for="email" class="inputlabel">Date</label><br>
-                    <input type="text" id="date" name="date" value="" class="inputfield" required> <br>
+                    <input type="text" id="date" name="date" value="" class="inputfield"> <br>
                     <p class="sublabelinput"> The date must be in YYYY-MM-DD format</p>
-                    <label for="email" class="inputlabel">Email address</label><br>
-                    <input type="text" id="email" name="email" value="${user.email}" class="inputfield" required readonly> <br>
+                    <input type="text" id="email" name="email" value="${user.email}" class="inputfield" readonly hidden> <br>
                     <input type="submit" value="Search" class="submitbutton">
                 </form>
-                    
-                    
-             <!--Table to show all access logs for the current user-->
+
+
+                <!--Table to show all access logs for the current user-->
                 <p class="pagetitle"> All access logs for ${user.name} </p>
                 <table class="maintable">
                     <thead>

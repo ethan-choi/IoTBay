@@ -1,5 +1,3 @@
-
-
 <%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -15,13 +13,13 @@
     </head>
     <body>
 
-    <!-- Import variables-->
+        <!-- Import variables-->
         <%
             User user = (User) session.getAttribute("user");
             String updated = (String) session.getAttribute("updated");
         %>
 
-        
+
         <!-- Header-->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
 
@@ -32,7 +30,7 @@
             </div>
         </div>
 
-        
+
         <!--Content -->
         <div class="platform">
             <p class="pagetitle"> Delete Account </p>
