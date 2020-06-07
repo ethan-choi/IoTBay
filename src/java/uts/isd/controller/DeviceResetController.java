@@ -41,16 +41,21 @@ public class DeviceResetController extends HttpServlet {
         String edit = request.getParameter("edit");
         String delete = request.getParameter("delete");
         
-        DBManager manager = (DBManager) session.getAttribute("manager");
+        Product product = null;
         
+        DBManager manager = (DBManager) session.getAttribute("manager");
+
         ValidatorDevice validator = new ValidatorDevice();
         validator.clear(session);
         
         if(add != null) {
+            session.setAttribute("product", product);
             request.getRequestDispatcher("deviceAdd.jsp").include(request, response);
         } else if(edit != null) {
+            session.setAttribute("product", product);
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(delete != null) {
+            session.setAttribute("product", product);
             request.getRequestDispatcher("deviceDelete.jsp").include(request, response);
         }
     }

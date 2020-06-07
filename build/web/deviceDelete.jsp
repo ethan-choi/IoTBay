@@ -63,11 +63,7 @@
                     <table class="maintable">  
                         <tr>
                             <td><label class="inputlabel" for="name">Device Name</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name"></td>
-                        </tr>
-                        <tr>
-                            <td><label class="inputlabel" for="type">Device Type</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(typeErr != null ? typeErr : "Enter type")%>" id="type" name="type"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" value="${product.name}" id="name" name="name"></td>
                         </tr>
                     </table>
                         

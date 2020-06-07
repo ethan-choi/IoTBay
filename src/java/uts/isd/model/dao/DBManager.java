@@ -165,7 +165,7 @@ public class DBManager {
     
     
     
-        //-- Check User's Role --\\
+    //-- Check User's Role --\\
        
     public String checkRole(String email) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.USERS WHERE EMAIL = '" + email + "'";
@@ -179,6 +179,7 @@ public class DBManager {
         }
         return null;
     }
+    
     
     //-- Product / Device Database Manager --\\
     public void addProduct(String name, double price, String manufacturer, String type, int quantity_in_stock) throws SQLException {
@@ -200,7 +201,24 @@ public class DBManager {
         }
         return null;
     }
-
+    
+    public Product findProductID(long id) throws SQLException {
+        String read = "SELECT * FROM IOTUSER.PRODUCT";
+        ResultSet rs = st.executeQuery(read);
+        while(rs.next()) {
+            Long product_id = rs.getLong(1);
+            if (product_id == id) {
+                String productName = rs.getString(2);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                String productType = rs.getString(5);
+                int productQuantity = rs.getInt(6);
+                return new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity);
+            }
+        }
+        return null;
+    }
+    
     public void updateProduct(String name, double price, String manufacturer, String type, int quantity) throws SQLException {
         st.executeUpdate("UPDATE IOTUSER.PRODUCT SET PRICE=" + price + ", MANUFACTURER='" + manufacturer + "', TYPE='" + type + "', QUANTITY_IN_STOCK=" + quantity + " WHERE NAME='" + name + "'");
     }

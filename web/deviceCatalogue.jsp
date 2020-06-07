@@ -132,16 +132,14 @@
                         <c:choose>
                             <c:when test="${role == 'Staff'}">
                                 <td>
-
                                     <form action="DeviceEditServlet">
                                         <input type="hidden" value='${dList.product_id}' name="id">
-                                        <input type="submit" value="edit" class="formbutton" >
+                                        <input style="float: left" type="submit" value="Edit" name="edit" class="deviceOptions" >
                                     </form>
-
-                                    <%--
-                               <a href="DeviceEditServlet?id=<c:out value='${dList.product_id}' />">Edit</a>              
-                              <a href="deviceUpdate.jsp"><p style="float: left" class="deviceOptions">Edit</p></a>--%>
-                                    <a href="deviceDelete.jsp"><p style="float: right" class="deviceOptions">Delete</p></a>
+                                    <form action="DeviceEditServlet">
+                                        <input type="hidden" value='${dList.product_id}' name="id">
+                                        <input style="float: right" type="submit" value="Delete" name="delete" class="deviceOptions" >
+                                    </form>
                                 </td>
                             </c:when>
                         </c:choose>

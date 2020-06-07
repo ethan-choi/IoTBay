@@ -69,26 +69,23 @@
                     <table class="maintable">  
                         <tr>
                             <td><label class="inputlabel" for="name">Device Name</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" id="name" name="name"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(nameErr != null ? nameErr : "Enter name")%>" value="${product.name}" id="name" name="name"></td>
                         </tr>
                         <tr>
                             <td><label class="inputlabel" for="price">Price</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(priceErr != null ? priceErr : "Enter price")%>" id="price" name="price"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(priceErr != null ? priceErr : "Enter price")%>" value="${product.price}" id="price" name="price"></td>
                         </tr>
                         <tr>
                             <td><label class="inputlabel" for="manufacturer">Manufacturer</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(manufacturerErr != null ? manufacturerErr : "Enter manufacturer")%>" id="manufacturer" name="manufacturer"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(manufacturerErr != null ? manufacturerErr : "Enter manufacturer")%>" value="${product.manufacturer}" id="manufacturer" name="manufacturer"></td>
                         </tr>
                         <tr>
                             <td><label class="inputlabel" for="type">Type</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(typeErr != null ? typeErr : "Enter type")%>" id="type" name="type"></td>
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(typeErr != null ? typeErr : "Enter type")%>" value="${product.type}" id="type" name="type"></td>
                         </tr>
                         <tr>
                             <td><label class="inputlabel" for="quantity">Quantity In Stock</label></td>
-                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(quantityErr != null ? quantityErr : "Enter quantity")%>" id="quantity" name="quantity"></td>
-                        </tr>
-                        <tr>
-                           
+                            <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(quantityErr != null ? quantityErr : "Enter quantity")%>" value="${product.quantity}" id="quantity" name="quantity"></td>
                         </tr>
                     </table>
                         
