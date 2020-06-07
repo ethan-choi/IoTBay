@@ -459,3 +459,63 @@ a:active {
     background: #EBF4FA;
     border: none;
 }
+
+.deviceManagement {
+    height: 80px;
+    margin-top: 10px;
+    padding-top: 10px;
+    /*border: 5px black solid;*/
+}
+
+.deviceManagement ul {
+    list-style-type: none;
+}
+
+.deviceManagement li {
+  
+    display: inline-block;
+    float:left;
+    padding-left: 4.5%;
+    padding-right: 5%;
+
+}
+
+.deviceManagement .formbutton {
+    width: 200px;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0% 50% 0% 50%;
+    font-family: open sans;
+    padding: 6%;
+    border-radius: 10px;
+    background: #5A8EF6;
+    color: white;
+    display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6;
+}
+
+.formbutton:hover{
+    background: blue;
+    border-color: blue;
+}
+
+.deviceOptions {
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5% 0% 0% 0%;
+    font-family: open sans;
+    padding: 1%;
+    border-radius: 10px;
+    background: #5A8EF6;
+    color: white;
+    display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6
+}
+
+.deviceOptions:hover{
+    background: blue;
+    border-color: blue;
+    color: white;
+}

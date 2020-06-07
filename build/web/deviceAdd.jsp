@@ -63,7 +63,7 @@
                         </tr>
                     </table>
                         
-                    <a href="DeviceCatalogue"><p class="standardbutton">Cancel</p></a>
+                    <a href="DeviceCatalogue"><p class="alternateOption">Cancel</p></a>
                     
                     <input type="submit" value="Add" class="submitbutton">
                 </form>

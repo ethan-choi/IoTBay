@@ -7,7 +7,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="uts.isd.model.Product"%>
+<%@page import="uts.isd.model.*"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,9 @@
     <body>
         
         <% 
-           // Customer customer = (Customer)session.getAttribute("customer");
+            User user = (User)session.getAttribute("user");
+            String role = (String) session.getAttribute("role");
+            
             Product product = (Product)session.getAttribute("product");
             
             ArrayList<Product> deviceList= (ArrayList<Product>) session.getAttribute("deviceList"); 
@@ -33,8 +35,8 @@
         
         <div class="header"> .<p class="headertext"> IoT Bay </p>
             <div class="navbar">
-                <a href="main.jsp" class="navbarbutton">Main</a>
-                <a href="logout.jsp" class="navbarbutton">Logout</a>
+                <a href="main.jsp" class="navBarButton">Main</a>
+                <a href="logout.jsp" class="navBarButton">Logout</a>
             </div>
         </div>
         
@@ -54,22 +56,32 @@
                     <input type="submit" value="Search" class="submitbutton" >
                 </form>
             </div>
-            
-            <div>
-                <form action="DeviceResetController" method="get">
-                    <input type="hidden" value="Add" name="add">
-                    <input type="submit" value="Add" class="submitbutton" >
-                </form>
-                <form action="DeviceResetController" method="get">
-                    <input type="hidden" value="Edit" name="edit">
-                    <input type="submit" value="Edit" class="submitbutton" >
-                </form>
-                <form action="DeviceResetController" method="get">
-                    <input type="hidden" value="Delete" name="delete">
-                    <input type="submit" value="Delete" class="submitbutton" >
-                </form>  
-            </div>
-                    
+            <c:choose>
+            <c:when test="${role == 'Staff'}">
+            <div class="deviceManagement">
+                <ul>
+                    <li>
+                        <form action="DeviceResetController" method="get">
+                        <input type="hidden" value="Add" name="add">
+                        <input type="submit" value="Add" class="formbutton" >
+                        </form>
+                    </li>
+                    <li>
+                    <form action="DeviceResetController" method="get">
+                        <input type="hidden" value="Edit" name="edit">
+                        <input type="submit" value="Edit" class="formbutton" >
+                    </form> 
+                    </li>
+                    <li>
+                    <form action="DeviceResetController" method="get">
+                        <input type="hidden" value="Delete" name="delete">
+                        <input type="submit" value="Delete" class="formbutton" >
+                    </form> 
+                    </li>
+                </ul>
+            </div>  
+            </c:when>
+            </c:choose>
             <table class="deviceTable">
                 <thead>
                     <th> Product_ID </th>
@@ -78,7 +90,11 @@
                     <th> Manufacturer </th>
                     <th> Type </th>
                     <th> Quantity Available </th>
+                    <c:choose>
+                    <c:when test="${role == 'Staff'}">
                     <th> Options </th>
+                    </c:when>
+                    </c:choose>
                 </thead>
                 <c:forEach items="${deviceList}" var="dList" >
                     <tr>
@@ -88,10 +104,23 @@
                         <td><c:out value="${dList.manufacturer}"/></td>
                         <td style="text-align: center"><c:out value="${dList.type}"/></td>
                         <td style="text-align: center"><c:out value="${dList.quantity}"/></td>
+                        <c:choose>
+                        <c:when test="${role == 'Staff'}">
                         <td>
-                            <a href="deviceUpdate.jsp"><p  style="float: left">Edit</p></a>
-                            <a href="deviceDelete.jsp"><p  style="float: right">Delete</p></a>
+                            
+                            <form action="DeviceEditServlet">
+                                <input type="hidden" value='${dList.product_id}' name="id">
+                                <input type="submit" value="edit" class="formbutton" >
+                            </form>
+                                
+                                  <%--
+                             <a href="DeviceEditServlet?id=<c:out value='${dList.product_id}' />">Edit</a>
+                                              
+                            <a href="deviceUpdate.jsp"><p style="float: left" class="deviceOptions">Edit</p></a>--%>
+                            <a href="deviceDelete.jsp"><p style="float: right" class="deviceOptions">Delete</p></a>
                         </td>
+                        </c:when>
+                        </c:choose>
                     </tr>
                 </c:forEach>
             </table>
