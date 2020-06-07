@@ -26,7 +26,7 @@
             <p class="pagetitle"> Welcome to IoT Bay </p>
 
             <form action="DeviceCatalogue">
-                <button class="interfacebutton" type="submit" value="Open"> Catalogue</button>
+                <button class="standardbutton" type="submit" value="Open"> Catalogue</button>
             </form>
             
   

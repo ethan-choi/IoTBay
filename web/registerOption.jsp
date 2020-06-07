@@ -22,14 +22,15 @@
                 <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
             </div>
         </div>
+        
 
 
         <!-- Content -->
         <div class="platform">
+            <p class="pagetitle"> Register as a </p>
             <!-- Option to register as a staff or customer -->
-            <a href="registerCustomer.jsp"> <p class="interfacebutton"> Customer </p> </a>
-            <p class="regulartextcenter"> or </p>
-            <a href="registerStaff.jsp"> <p class="interfacebutton"> Staff </p> </a>
+            <a href="registerCustomer.jsp"> <p class="standardbutton"> Customer </p> </a>
+            <a href="regsiterStaff.jsp"> <p class="standardbutton"> Staff </p> </a>
 
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>
