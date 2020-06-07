@@ -19,9 +19,8 @@ VALUES
 ('2020-06-01', '13:01:30', 'Logout', 'kenny.rodgers@email.com' ),
 
 
-('2020-05-30', '23:11:11', 'Register', 'kenny.rodgers@email.com' ),
-('2020-05-30', '18:02:10', 'Login', 'kenny.rodgers@email.com' ),
-('2020-05-30', '19:02:40', 'Logout', 'kenny.rodgers@email.com' ),
-('2020-06-01', '13:00:02', 'Login', 'kenny.rodgers@email.com' ),
-('2020-06-01', '13:01:30', 'Logout', 'kenny.rodgers@email.com' );
-
+('2020-05-30', '23:11:11', 'Register', 'jeff.flynn@email.com' ),
+('2020-05-30', '18:02:10', 'Login', 'jeff.flynn@email.com' ),
+('2020-05-30', '19:02:40', 'Logout', 'jeff.flynn@email.com' ),
+('2020-06-01', '13:00:02', 'Login', 'jeff.flynn@email.com' ),
+('2020-06-01', '13:01:30', 'Logout', 'jeff.flynn@email.com' );
