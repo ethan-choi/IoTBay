@@ -30,7 +30,7 @@
             <p class="pagetitle"> Register as a </p>
             <!-- Option to register as a staff or customer -->
             <a href="registerCustomer.jsp"> <p class="standardbutton"> Customer </p> </a>
-            <a href="regsiterStaff.jsp"> <p class="standardbutton"> Staff </p> </a>
+            <a href="registerStaff.jsp"> <p class="standardbutton"> Staff </p> </a>
 
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>
