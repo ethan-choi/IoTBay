@@ -39,7 +39,10 @@
         <div class="platform">
             <p class="pagetitle">Welcome, ${user.name}</p>
 
-
+            <br>
+            <br>
+            <br>
+            <br>
             <!-- User details table-->
             <table class="maintable">
                 <thead>
@@ -80,11 +83,6 @@
                 <button type="submit" name="email" value="${user.email}" class="standardbutton">   Access Logs </button>
                 <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
             </form>
-                
-            <form action="DeviceCatalogue">
-                    <button class="standardbutton" type="submit" name="email" value="${user.email}">Catalogue</button>
-            </form>
-                
         </div>
     </body> 
 </html>

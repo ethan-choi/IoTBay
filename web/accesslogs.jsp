@@ -42,7 +42,7 @@
 
 
             <!--Search access log bar -->
-            <p class="pagetitle"> Search </p>
+            <p class="pagetitle"> Search for Access Logs</p>
             <p class="invalid"> <%=(existErr != null ? existErr : "")%>  </p>
             <p class="invalid"> <%=(emptyErrUam != null ? emptyErrUam : "")%>  </p>
             
@@ -55,10 +55,9 @@
                     <input type="text" id="email" name="email" value="${user.email}" class="inputfield" readonly hidden> <br>
                     <input type="submit" value="Search" class="submitbutton">
                 </form>
-
-
+                    
                 <!--Table to show all access logs for the current user-->
-                <p class="pagetitle"> All access logs for ${user.name} </p>
+                <p class="pagetitle2"> All access logs for ${user.name} </p>
                 <table class="maintable">
                     <thead>
                     <th> Date </th>

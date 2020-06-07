@@ -55,8 +55,6 @@
         <!--Update details form-->
         <div class="form">
             <form action="UpdateController">
-
-                <label for="email" class="inputlabel">Email address</label><br>
                 <input type="text" id="email" name="email" value="${user.email}" class="inputfield" hidden ><br>
 
                 <label for="password" class="inputlabel">Password</label><br>

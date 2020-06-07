@@ -37,6 +37,10 @@
     <div class="platform">
         <p class="pagetitle"> Access logs for ${user.name} </p>
         <a href="accesslogs.jsp"> <p class="standardbutton"> Search again </p> </a>
+        <br>
+        <br>
+        <br>
+        <br>
         
         <!--Table to display access log results -->
         <table class="maintable">

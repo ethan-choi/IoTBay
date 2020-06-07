@@ -9,7 +9,7 @@ html, body {
     font-family: open sans;
     font-size: 25px;
     padding: 2%;
-    
+
 }
 
 .invalid{
@@ -32,7 +32,13 @@ html, body {
     font-size: 50px;
     font-family: open sans;
     color: #5A8EF6;
-    margin: 7% 24% 0% 24%;
+    margin: 7% 0% 0% 0%;
+}
+
+.pagetitle2{
+    font-size: 50px;
+    font-family: open sans;
+    color: #5A8EF6;
 }
 
 
@@ -96,39 +102,41 @@ html, body {
     font-size: 25px;
     font-family: open sans;
 }
-    
+
 .maintable{
-        font-size: 40px;
-        font-family: open sans;
-        padding: 1% 20% 1% 20%;
-        table-layout: fixed ;
-        width: 100% ;
-        border-collapse: collapse;
-        text-align: left;
-        margin-top: 10%;
+    font-size: 40px;
+    font-family: open sans;
+    padding: 0% 20% 1% 20%;
+    table-layout: fixed ;
+    width: 100% ;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 0%;
 }
-    
+
 .maintable th{
-        background: #5A8EF6;
-        font-size: 30px;
-        text-align: left;
-        margin-bottom: 100%;
-        color: white
-    }
-    
+    background: #5A8EF6;
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 100%;
+    color: white;
+
+}
+
 .maintable td{
-        background: white;
-        font-size: 20px;
-        padding: 1%;
-    }
-    
-    
+    background: white;
+    font-size: 20px;
+    text-align: left;
+    padding: 1% 0% 1% 0%;
+}
+
+
 .regulartextcenter{
     font-size: 40px;
     text-align: center;
     font-family: open sans;
     margin: 0% 5% 0% 5%;
-    }
+}
 
 /* Login & Register */
 .inputlabel{
@@ -186,7 +194,7 @@ html, body {
     width: 20%;
     font-size: 20px;
     text-decoration: none;
-    margin: 7% 0% 0% 0%;
+    margin: 7% 0% 10% 0%;
     font-family: open sans;
     padding: 1%;
     border-radius: 10px;
@@ -217,7 +225,7 @@ html, body {
     color: #5A8EF6;
     display: inline-block;
     margin-right: 10%;
-    
+
 }
 .alternateOption:hover{
     background: blue;
@@ -239,7 +247,7 @@ html, body {
     background: white;
     color: #5A8EF6;
     display: inline-block;
-    
+
 }
 .navBarButton:hover{
     background: blue;
@@ -372,7 +380,7 @@ html, body {
 
 .loginstatus{
     display: inline-block;
-float: right;
+    float: right;
 }
 
 .submitbutton:hover{
@@ -384,13 +392,13 @@ float: right;
 
 /* Edit */
 a:link {
-  color: #5A8EF6;
-  text-decoration: none;
+    color: #5A8EF6;
+    text-decoration: none;
 
 }
 
 a:visited {
-  color: black;
+    color: black;
 }
 
 a:hover {
@@ -398,19 +406,19 @@ a:hover {
 }
 
 a:active {
-  text-decoration: bold;
+    text-decoration: bold;
 }
 
 /* Device Catalogue */
 .deviceTable {
-        font-size: 40px;
-        font-family: open sans;
-        padding: 1% 20% 1% 20%;
-        table-layout: fixed ;
-        width: 100% ;
-        border-collapse: collapse;
-        text-align: left;
-        margin-top: 10%;
+    font-size: 40px;
+    font-family: open sans;
+    padding: 1% 20% 1% 20%;
+    table-layout: fixed ;
+    width: 100% ;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 10%;
 }
 
 .deviceTable thead {
@@ -418,21 +426,21 @@ a:active {
 }
 
 .deviceTable th {
-        background: #5A8EF6;
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 100%;
-        color: white;
-        border: 1px solid #5A8EF6;
-    }
-    
-.deviceTable td {
-        background: white;
-        font-size: 20px;
-        padding: 1%;
+    background: #5A8EF6;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 100%;
+    color: white;
+    border: 1px solid #5A8EF6;
+}
 
-    }
-    
+.deviceTable td {
+    background: white;
+    font-size: 20px;
+    padding: 1%;
+
+}
+
 .catalogue {
     background: white;
     margin: 5% 7% 5% 7%;
@@ -458,64 +466,4 @@ a:active {
     border-radius: 10px;
     background: #EBF4FA;
     border: none;
-}
-
-.deviceManagement {
-    height: 80px;
-    margin-top: 10px;
-    padding-top: 10px;
-    /*border: 5px black solid;*/
-}
-
-.deviceManagement ul {
-    list-style-type: none;
-}
-
-.deviceManagement li {
-  
-    display: inline-block;
-    float:left;
-    padding-left: 4.5%;
-    padding-right: 5%;
-
-}
-
-.deviceManagement .formbutton {
-    width: 200px;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 0% 50% 0% 50%;
-    font-family: open sans;
-    padding: 6%;
-    border-radius: 10px;
-    background: #5A8EF6;
-    color: white;
-    display: inline-block;
-    border-style: solid;
-    border-color: #5A8EF6;
-}
-
-.formbutton:hover{
-    background: blue;
-    border-color: blue;
-}
-
-.deviceOptions {
-    font-size: 20px;
-    text-decoration: none;
-    margin: 5% 0% 0% 0%;
-    font-family: open sans;
-    padding: 1%;
-    border-radius: 10px;
-    background: #5A8EF6;
-    color: white;
-    display: inline-block;
-    border-style: solid;
-    border-color: #5A8EF6
-}
-
-.deviceOptions:hover{
-    background: blue;
-    border-color: blue;
-    color: white;
 }
