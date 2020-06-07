@@ -4,6 +4,12 @@ html, body {
     padding:0;
     background: #F1F1F1;
 }
+
+html {
+  overflow-y: scroll;
+}
+
+
 .success{
     color: green;
     font-family: open sans;
@@ -11,6 +17,16 @@ html, body {
     padding: 2%;
 
 }
+
+.logo{
+    width: 100px; /* you can use % */
+    height: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
 
 .invalid{
     color: red;
@@ -64,7 +80,10 @@ html, body {
     font-family: open sans;
     text-align: center;
     font-size: 100px;
+    display: inline;
+    margin-left: 2%;
 }
+
 
 /* interface */
 .invalid{
@@ -376,7 +395,6 @@ html, body {
 .navbar{
     text-align: center;
     width: 100%;
-
 }
 
 .navbarbutton{
@@ -400,6 +418,10 @@ html, body {
     color: white;
     font-size: 24px;
     text-align: center;
+    display: inline;
+    float: right;
+    margin-top: 4%;
+    margin-right: 2%;
 }
 
 .submitbutton:hover{

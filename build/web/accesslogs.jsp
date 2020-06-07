@@ -3,7 +3,7 @@
 <%@page import="uts.isd.model.accessLog"%>
 <%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 
 
@@ -27,7 +27,17 @@
 
 
         <!-- Header -->
-        <div class="header"> .<p class="headertext"> IoT Bay </p>
+        <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
+                <c:set var="val" value="${user.email}"/>
+                <c:choose> 
+                    <c:when test="${val != null}">
+                        <p class="loginstatus"> You are logged in as ${user.email} </p>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="loginstatus"> You are not logged in </p>
+                    </c:otherwise>
+                </c:choose>
+            </div>
             <div class="navbar">
                 <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>

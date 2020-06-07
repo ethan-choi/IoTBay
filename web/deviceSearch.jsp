@@ -3,7 +3,7 @@
     Created on : 04/06/2020, 1:33:11 AM
     Author     : Jackie Lim
 --%>
-
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -27,7 +27,17 @@
             ArrayList<Product> deviceSearching = (ArrayList<Product>) session.getAttribute("deviceSearching"); 
         %>
         
-        <div class="header"> .<p class="headertext"> IoT Bay </p>
+        <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
+                <c:set var="val" value="${user.email}"/>
+                <c:choose> 
+                    <c:when test="${val != null}">
+                        <p class="loginstatus"> You are logged in as ${user.email} </p>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="loginstatus"> You are not logged in </p>
+                    </c:otherwise>
+                </c:choose>
+            </div>
             <div class="navbar">
                 <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>

@@ -4,7 +4,7 @@
     Author     : Jackie Lim
 --%>
 
-
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@page import="uts.isd.model.User"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,22 +18,32 @@
         <title>Device Catalogue</title>
     </head>
     <body>
-        
-        <% 
+
+        <%
             User user = (User) session.getAttribute("user");
             String role = (String) session.getAttribute("role");
-            Product product = (Product)session.getAttribute("product");
-            
-            ArrayList<Product> deviceList= (ArrayList<Product>) session.getAttribute("deviceList"); 
-                        
+            Product product = (Product) session.getAttribute("product");
+
+            ArrayList<Product> deviceList = (ArrayList<Product>) session.getAttribute("deviceList");
+
             String existErr = (String) session.getAttribute("existErr");
             String nameErr = (String) session.getAttribute("nameErr");
             String typeErr = (String) session.getAttribute("typeErr");
-            
+
         %>
-        
-        
-        <div class="header"> .<p class="headertext"> IoT Bay </p>
+
+
+        <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
+                <c:set var="val" value="${user.email}"/>
+                <c:choose> 
+                    <c:when test="${val != null}">
+                        <p class="loginstatus"> You are logged in as ${user.email} </p>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="loginstatus"> You are not logged in </p>
+                    </c:otherwise>
+                </c:choose>
+            </div>
             <div class="navbar">
                 <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
@@ -52,7 +62,7 @@
                 </form>
             </div>
         </div>
-        
+
         <div class="catalogue"> 
             <p class="pagetitle">Device Catalogue</p>
             <p class="dSubheading"> Search: </p>
@@ -69,46 +79,46 @@
                     <input type="submit" value="Search" class="submitbutton" >
                 </form>
             </div>
-            
+
             <c:choose>
-            <c:when test="${role == 'Staff'}">
-            <div class="deviceManagement">
-                <ul>
-                    <li>
-                        <form action="DeviceResetController" method="get">
-                        <input type="hidden" value="Add" name="add">
-                        <input type="submit" value="Add" class="formbutton" >
-                        </form>
-                    </li>
-                    <li>
-                    <form action="DeviceResetController" method="get">
-                        <input type="hidden" value="Edit" name="edit">
-                        <input type="submit" value="Edit" class="formbutton" >
-                    </form> 
-                    </li>
-                    <li>
-                    <form action="DeviceResetController" method="get">
-                        <input type="hidden" value="Delete" name="delete">
-                        <input type="submit" value="Delete" class="formbutton" >
-                    </form> 
-                    </li>
-                </ul>
-            </div>  
-            </c:when>
+                <c:when test="${role == 'Staff'}">
+                    <div class="deviceManagement">
+                        <ul>
+                            <li>
+                                <form action="DeviceResetController" method="get">
+                                    <input type="hidden" value="Add" name="add">
+                                    <input type="submit" value="Add" class="formbutton" >
+                                </form>
+                            </li>
+                            <li>
+                                <form action="DeviceResetController" method="get">
+                                    <input type="hidden" value="Edit" name="edit">
+                                    <input type="submit" value="Edit" class="formbutton" >
+                                </form> 
+                            </li>
+                            <li>
+                                <form action="DeviceResetController" method="get">
+                                    <input type="hidden" value="Delete" name="delete">
+                                    <input type="submit" value="Delete" class="formbutton" >
+                                </form> 
+                            </li>
+                        </ul>
+                    </div>  
+                </c:when>
             </c:choose>
-                    
+
             <table class="deviceTable">
                 <thead>
-                    <th> Product_ID </th>
-                    <th> Name </th>
-                    <th> Price </th>
-                    <th> Manufacturer </th>
-                    <th> Type </th>
-                    <th> Quantity Available </th>
+                <th> Product_ID </th>
+                <th> Name </th>
+                <th> Price </th>
+                <th> Manufacturer </th>
+                <th> Type </th>
+                <th> Quantity Available </th>
                     <c:choose>
-                    <c:when test="${role == 'Staff'}">
-                    <th> Options </th>
-                    </c:when>
+                        <c:when test="${role == 'Staff'}">
+                        <th> Options </th>
+                        </c:when>
                     </c:choose>
                 </thead>
                 <c:forEach items="${deviceList}" var="dList" >
@@ -120,20 +130,20 @@
                         <td style="text-align: center"><c:out value="${dList.type}"/></td>
                         <td style="text-align: center"><c:out value="${dList.quantity}"/></td>
                         <c:choose>
-                        <c:when test="${role == 'Staff'}">
-                        <td>
-                            
-                            <form action="DeviceEditServlet">
-                                <input type="hidden" value='${dList.product_id}' name="id">
-                                <input type="submit" value="edit" class="formbutton" >
-                            </form>
-                                
-                                  <%--
-                             <a href="DeviceEditServlet?id=<c:out value='${dList.product_id}' />">Edit</a>              
-                            <a href="deviceUpdate.jsp"><p style="float: left" class="deviceOptions">Edit</p></a>--%>
-                            <a href="deviceDelete.jsp"><p style="float: right" class="deviceOptions">Delete</p></a>
-                        </td>
-                        </c:when>
+                            <c:when test="${role == 'Staff'}">
+                                <td>
+
+                                    <form action="DeviceEditServlet">
+                                        <input type="hidden" value='${dList.product_id}' name="id">
+                                        <input type="submit" value="edit" class="formbutton" >
+                                    </form>
+
+                                    <%--
+                               <a href="DeviceEditServlet?id=<c:out value='${dList.product_id}' />">Edit</a>              
+                              <a href="deviceUpdate.jsp"><p style="float: left" class="deviceOptions">Edit</p></a>--%>
+                                    <a href="deviceDelete.jsp"><p style="float: right" class="deviceOptions">Delete</p></a>
+                                </td>
+                            </c:when>
                         </c:choose>
                     </tr>
                 </c:forEach>
