@@ -1,4 +1,4 @@
-
+/* General */
 html, body {
     margin:0;
     padding:0;
@@ -9,7 +9,6 @@ html {
   overflow-y: scroll;
 }
 
-
 .success{
     color: green;
     font-family: open sans;
@@ -17,16 +16,6 @@ html {
     padding: 2%;
 
 }
-
-.logo{
-    width: 100px; /* you can use % */
-    height: auto;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-}
-
 
 .invalid{
     color: red;
@@ -57,7 +46,6 @@ html {
     color: #5A8EF6;
 }
 
-
 .notastaff:hover{
     color: blue;
 }
@@ -68,6 +56,28 @@ html {
     margin: 1% 24% 0% 24%;
     color: grey;
 }
+
+
+.maintable th{
+    background: #5A8EF6;
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 100%;
+    color: white;
+
+}
+
+.maintable td{
+    background: white;
+    font-size: 20px;
+    text-align: left;
+    padding: 1% 0% 1% 0%;
+}
+
+
+
+
+
 
 /* Header */
 .header{
@@ -84,13 +94,70 @@ html {
     margin-left: 2%;
 }
 
+.logo{
+    width: 100px;
+    height: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
 
-/* interface */
+
+
+.navBarButtoncatalogue{
+    width: 10%;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0% 1% 0% 1%;
+    font-family: open sans;
+    padding: 1%;
+    border-radius: 10px;
+    background: white;
+    color: blue;
+    display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6;
+}
+
+.navBarButtoncatalogue:hover{
+    background: blue;
+    border-color: blue;
+    color: white;
+}
+
+.navBarButton{
+    width: 8%;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5% 1% 0% 1%;
+    font-family: open sans;
+    padding: 1%;
+    border-radius: 10px;
+    background: white;
+    color: blue;
+    display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6;
+}
+.navBarButton:hover{
+    background: blue;
+    border-color: blue;
+    color: white;
+}
+
+
+
+
+
+/* Index */
 .invalid{
     font-size: 25spx;
     font-family: open sans;
     color: red;
 }
+
+
 .interfacetitle{
     text-align: center;
     font-size: 80px;
@@ -128,22 +195,6 @@ html {
     border-collapse: collapse;
     text-align: left;
     margin-top: 0%;
-}
-
-.maintable th{
-    background: #5A8EF6;
-    font-size: 30px;
-    text-align: left;
-    margin-bottom: 100%;
-    color: white;
-
-}
-
-.maintable td{
-    background: white;
-    font-size: 20px;
-    text-align: left;
-    padding: 1% 0% 1% 0%;
 }
 
 
@@ -250,46 +301,6 @@ html {
 }
 
 
-.navBarButtoncatalogue{
-    width: 10%;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 0% 1% 0% 1%;
-    font-family: open sans;
-    padding: 1%;
-    border-radius: 10px;
-    background: white;
-    color: blue;
-    display: inline-block;
-    border-style: solid;
-    border-color: #5A8EF6;
-}
-
-.navBarButtoncatalogue:hover{
-    background: blue;
-    border-color: blue;
-    color: white;
-}
-
-.navBarButton{
-    width: 8%;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 5% 1% 0% 1%;
-    font-family: open sans;
-    padding: 1%;
-    border-radius: 10px;
-    background: white;
-    color: blue;
-    display: inline-block;
-    border-style: solid;
-    border-color: #5A8EF6;
-}
-.navBarButton:hover{
-    background: blue;
-    border-color: blue;
-    color: white;
-}
 .standardbutton{
     width: 20%;
     font-size: 20px;
@@ -431,7 +442,7 @@ html {
 
 
 
-/* Edit */
+/* Links */
 a:link {
     color: #5A8EF6;
     text-decoration: none;
@@ -449,6 +460,9 @@ a:hover {
 a:active {
     text-decoration: bold;
 }
+
+
+
 
 /* Device Catalogue */
 .deviceTable {
