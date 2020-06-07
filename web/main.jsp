@@ -72,6 +72,10 @@
             </table>
 
 
+                <br>
+                <br>
+                <br>
+                <br>
             <!--Various buttons for different user actions -->
             <table class="maintable">
                 <thead>
