@@ -29,7 +29,7 @@
             <div class="navbar">
                 <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <button class="navBarButtoncatalogue" type="submit" name="email" value="${user.email}"> Catalogue </button>
                     <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
                     <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
                 </form>
