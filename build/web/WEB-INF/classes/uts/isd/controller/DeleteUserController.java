@@ -2,6 +2,10 @@ package uts.isd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -11,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.User;
+import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 
 // Purpose of this controller is to set an account as "Inactive", essentially deleting the user from the system
@@ -27,6 +32,15 @@ public class DeleteUserController extends HttpServlet {
         String email = request.getParameter("email");
         String status = "Inactive";
 
+        //Convert current date/time to seperate date and time string variables
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String stringTime = timeFormat.format(date);
+        String stringDate = dateFormat.format(date);
+        String time = stringTime;
+        String action = "Deactivate";
+
         //Define user
         User user = null;
         try {
@@ -35,6 +49,10 @@ public class DeleteUserController extends HttpServlet {
             if (user != null) {
                 //call on updateUserStatus to find the record by email and set status to "Inactive" as defined prior
                 manager.updateUserStatus(email, status);
+
+                //Create delete access log
+                manager.addAccessLog(stringDate, time, action, email);
+                accessLog accesslog = new accessLog(stringDate, time, action, email);
 
                 //Return to session
                 session.setAttribute("user", user);

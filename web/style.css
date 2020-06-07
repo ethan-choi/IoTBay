@@ -58,15 +58,12 @@ html, body {
     background: #5A8EF6;
     height: 50%;
     padding-bottom: 1%;
-    margin-top: 0px;
-
 }
 .headertext{
     color: white;
     font-family: open sans;
     text-align: center;
     font-size: 100px;
-
 }
 
 /* interface */
@@ -238,7 +235,7 @@ html, body {
     width: 10%;
     font-size: 20px;
     text-decoration: none;
-    margin: 5% 1% 0% 1%;
+    margin: 0% 1% 0% 1%;
     font-family: open sans;
     padding: 1%;
     border-radius: 10px;
@@ -399,8 +396,10 @@ html, body {
 }
 
 .loginstatus{
-    display: inline-block;
-    float: right;
+    font-family: open sans;
+    color: white;
+    font-size: 24px;
+    text-align: center;
 }
 
 .submitbutton:hover{

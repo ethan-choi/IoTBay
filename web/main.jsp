@@ -35,7 +35,7 @@
                 </form>
             </div>
         </div>
-        
+
         <!-- Content-->
         <div class="platform">
             <p class="pagetitle">Welcome, ${user.name}</p>

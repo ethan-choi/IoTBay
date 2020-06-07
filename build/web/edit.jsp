@@ -52,11 +52,10 @@
         <p class="invalid"><%=(nameErr != null ? nameErr : "")%></p>
         <p class="invalid"><%=(numberErr != null ? numberErr : "")%></p>
         <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>            
-
         <!--Update details form-->
         <div class="form">
             <form action="UpdateController">
-                <input type="text" id="email" name="email" value="${user.email}" class="inputfield" hidden ><br>
+                <input type="hidden" id="email" name="email" value="${user.email}" class="inputfield" readonly> <br>
 
                 <label for="password" class="inputlabel">Password</label><br>
                 <input type="text" id="password" name="password" value="${user.password}" class="inputfield" ><br>

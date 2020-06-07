@@ -13,7 +13,6 @@
 
 
     <!-- Header -->
-
     <div class="header"> .<p class="headertext"> IoT Bay </p>
         <div class="navbar">
             <form action="DeviceCatalogue">
@@ -24,11 +23,6 @@
             </form>
         </div>
     </div>
-
-
-
-
-
 
     <!-- Content -->
     <div class="platform">

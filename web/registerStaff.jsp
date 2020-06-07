@@ -1,105 +1,89 @@
-package uts.isd.controller;
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import uts.isd.model.User;
-import uts.isd.model.User;
-import uts.isd.model.accessLog;
-import uts.isd.model.dao.DBManager;
+<!-- Purpose of this page is to allow staff members to register accounts -->
+<html>
+    <head>
+        <title>Staff Member Register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 
-//Purpose of this controller is to allow staff members to create a new account with the IoT Bay System
-public class RegisterStaffController extends HttpServlet {
+    <!-- Import variables -->
+    <%
+        String existErr = (String) session.getAttribute("existErr");
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        String nameErr = (String) session.getAttribute("nameErr");
+        String numberErr = (String) session.getAttribute("numberErr");
+        String accessErr = (String) session.getAttribute("accessErr");
+        String emptyErrUam = (String) session.getAttribute("emptyErrUam");
+    %>
 
-    @Override
+    <body>
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        ValidatorUserAccessManagement validator = new ValidatorUserAccessManagement();
-        DBManager manager = (DBManager) session.getAttribute("manager");
 
-        //Get inputs from form
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String number = request.getParameter("number");
-        String accesskey = request.getParameter("accesskey");
-        String status = "Active";
-        String role = "Staff";
+        <!-- header -->
+        <div class="header"> .<p class="headertext"> IoT Bay </p>
+            <div class="navbar">
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                    <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                </form>
+            </div>
+        </div>
 
-        //Convert current date/time to seperate date and time string variables
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String stringTime = timeFormat.format(date);
-        String stringDate = dateFormat.format(date);
-        String time = stringTime;
-        String action = "Register";
 
-        validator.clear(session);
+        <div class="platform">
+            <p class="pagetitle"> Create an IoT Bay Staff Account</p>
+            <p class="invalid"><%=(existErr != null ? existErr : "")%> </p>
+            <p class="invalid"><%=(passErr != null ? passErr : "")%> </p>
+            <p class="invalid"><%=(emailErr != null ? emailErr : "")%></p>
+            <p class="invalid"><%=(nameErr != null ? nameErr : "")%></p>
+            <p class="invalid"><%=(numberErr != null ? numberErr : "")%></p>
+            <p class="invalid"><%=(accessErr != null ? accessErr : "")%></p>
+            <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>
+            <!-- Register form -->
+            <div class="form">
+                <form action="RegisterStaffController" method="post">
 
-        if (validator.checkEmptyStaffRegister(accesskey, email, password, name, number)) {
-            session.setAttribute("emptyErrUam", "Please enter all fields");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
+                    <!-- Check to see if staff access key is correct and validate that the user is an actual staff member -->
+                    <!-- For the purpose of this assignment, it is 123 -->
+                    <!-- In reality, the key would be more complex and be given to staff members in person by their manager -->
+                    <!-- If key is incorrect, deny access and redirect them to registerStaff.jsp -->
+                    <label for="accesskey" class="inputlabel">Staff access key</label><br>
+                    <input type="password" id="accesskey" name="accesskey" class="inputfield" ><br>
+                    <a href="registerCustomer.jsp"> <p class="sublabelinput"> Not a staff member? Click here to register as a customer instead  </p></a>
 
-            //Check to see if staff access key is correct and validate that the user is an actual staff member
-            //For the purpose of this assignment, it is 123
-            //In reality, the key would be more complex and be given to staff members in person by their manager
-            //If key is incorrect, deny access and redirect them to registerStaff.jsp
-        } else if (!validator.validateAccessKey(accesskey)) {
-            session.setAttribute("accessErr", "Invalid staff access key");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
+                    <label for="email" class="inputlabel">Email address</label><br>
+                    <input type="text" id="email" name="email" class="inputfield" ><br>
+                    <p class="sublabelinput"> Your email address must include @ and .</p>
 
-            //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
-        } else if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Your email address must include @ and .");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
-        } else if (!validator.validatePassword(password)) {
-            session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
-        } else if (!validator.validateName(name)) {
-            session.setAttribute("nameErr", "Your name must not include numbers");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
-        } else if (!validator.validateNumber(number)) {
-            session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
-            request.getRequestDispatcher("registerStaff.jsp").include(request, response);
 
-            //if inputs are valid
-        } else {
-            try {
-                //find user using findUserEmailOnly and store in exist variable
-                User exist = manager.findUserEmailOnly(email);
-                if (exist != null) {
-                    //if user already exists, display error and return to registerStaff.jsp
-                    session.setAttribute("existErr", "User already has an account");
-                    request.getRequestDispatcher("registerStaff.jsp").include(request, response);
-                } else {
+                    <label for="password" class="inputlabel">Password</label><br>
+                    <input type="password" id="password"  name="password" class="inputfield" ><br>
+                    <p class="sublabelinput"> Your password must have at least 5 letters and/or numbers and no spaces</p>
 
-                    //if user does not exist, create new user
-                    manager.addUser(name, email, password, number, status, role);
-                    User user = new User(name, email, password, number, status, role);
-                    session.setAttribute("user", user);
-                    request.getRequestDispatcher("main.jsp").include(request, response);
 
-                    //create access log to record register action
-                    manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(stringDate, time, action, email);
-                }
 
-            } catch (SQLException | NullPointerException ex) {
-                Logger.getLogger(RegisterStaffController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-            validator.clear (session);
-    }
-}
+                    <label for="name" class="inputlabel">Full Name</label><br>
+                    <input type="text" id="name" placeholder = "" name="name" class="inputfield" ><br>
+                    <p class="sublabelinput"> Your name must not include numbers</p>
+
+
+                    <label for="number" class="inputlabel">Mobile Number</label><br>
+                    <input type="text" id="number" placeholder = "" name="number" class="inputfield" ><br>
+                    <p class="sublabelinput"> Your mobile number must be 10 digits long</p>            
+
+                    <a href="login.jsp"> <p class="alternateOption"> Login instead </p> </a>
+
+                    <input type="submit" value="Register" class="submitbutton">
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
