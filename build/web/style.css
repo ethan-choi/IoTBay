@@ -234,20 +234,40 @@ html, body {
 }
 
 
-.navBarButton{
+.navBarButtoncatalogue{
     width: 10%;
     font-size: 20px;
     text-decoration: none;
-    border-style: solid;
-    border-color: #5A8EF6;
-    margin: 0% 0% 0% 0%;
+    margin: 5% 1% 0% 1%;
     font-family: open sans;
     padding: 1%;
     border-radius: 10px;
     background: white;
-    color: #5A8EF6;
+    color: blue;
     display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6;
+}
 
+.navBarButtoncatalogue:hover{
+    background: blue;
+    border-color: blue;
+    color: white;
+}
+
+.navBarButton{
+    width: 8%;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5% 1% 0% 1%;
+    font-family: open sans;
+    padding: 1%;
+    border-radius: 10px;
+    background: white;
+    color: blue;
+    display: inline-block;
+    border-style: solid;
+    border-color: #5A8EF6;
 }
 .navBarButton:hover{
     background: blue;

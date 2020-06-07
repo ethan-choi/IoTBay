@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Account Page</title>
+        <title>Access Logs</title>
     </head>
 
     <body>
@@ -27,14 +27,16 @@
 
 
         <!-- Header -->
-        <div class="header">.
-            <p class="headertext"> IoT Bay </p>
+        <div class="header"> .<p class="headertext"> IoT Bay </p>
             <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
+                    <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
+                </form>
             </div>
-        </div>
+        </div>  
 
 
         <!--Content -->

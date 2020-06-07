@@ -32,6 +32,8 @@ public class UpdateController extends HttpServlet {
 
         //Store new data in a variable
         User user = new User(name, email, password, number, status, role);
+        
+                validator.clear(session);
 
         //Validators to check if fields or empty or using incorrect format
         if (validator.checkEmptyEdit(email, password, name, number)) {
@@ -69,5 +71,6 @@ public class UpdateController extends HttpServlet {
             }
             response.sendRedirect("edit.jsp");
         }
+
     }
 }

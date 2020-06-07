@@ -1,13 +1,15 @@
 <%@page import="uts.isd.model.User"%>
 <%@page import="uts.isd.model.accessLog"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 
 <!-- Purpose of this page is to display account information and provide link to other account actions -->
 <html>
     <head>
-        <title>Main</title>
+        <title>Account</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -24,17 +26,16 @@
 
         <!-- Header -->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
-
             <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
-                <a href="logout.jsp"> <p class="navBarButton"> Log Out </p> </a>
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
+                    <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
+                </form>
             </div>
-        </div>   
-
-
-
+        </div>
+        
         <!-- Content-->
         <div class="platform">
             <p class="pagetitle">Welcome, ${user.name}</p>
@@ -72,10 +73,10 @@
             </table>
 
 
-                <br>
-                <br>
-                <br>
-                <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <!--Various buttons for different user actions -->
             <table class="maintable">
                 <thead>

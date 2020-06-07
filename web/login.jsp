@@ -20,17 +20,19 @@
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
             String activateErr = (String) session.getAttribute("activateErr");
-            String emptyErrUam =  (String) session.getAttribute("emptyErrUam");
+            String emptyErrUam = (String) session.getAttribute("emptyErrUam");
         %>
 
 
         <!--header -->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
-
             <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                    <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                </form>
             </div>
         </div>
 

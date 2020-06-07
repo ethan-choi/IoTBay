@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Account Page</title>
+        <title>Delete Account</title>
     </head>
     <body>
 
@@ -22,11 +22,13 @@
 
         <!-- Header-->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
-
             <div class="navbar">
-                <a href="main.jsp" class="navbarbutton"> Main</a>
-                <a href="logout.jsp" class="navbarbutton"> Logout</a>
-
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
+                    <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
+                </form>
             </div>
         </div>
 

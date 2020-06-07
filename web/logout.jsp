@@ -22,11 +22,12 @@
     <body>
         <div class="header"> .<p class="headertext"> IoT Bay </p>
             <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
-                <a href="logout.jsp"> <p class="navBarButton"> Log Out </p> </a>
-                <p>Welcome, ${user.name}</p>
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
+                    <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
+                </form>
             </div>
         </div>
 

@@ -5,7 +5,7 @@
 <!-- Purpose of this page is to allow customers to register accounts -->
 <html>
     <head>
-        <title>Register</title>
+        <title>Customer Register</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -28,13 +28,17 @@
 
         <!-- Header -->
         <div class="header"> .<p class="headertext"> IoT Bay </p>
-
             <div class="navbar">
-                <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
-                <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
-                <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                <form action="DeviceCatalogue">
+                    <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
+                    <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
+                    <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                    <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                </form>
             </div>
-        </div>
+        </div>  
+
+
 
 
         <div class="platform">
@@ -46,7 +50,7 @@
             <p class="invalid"><%=(nameErr != null ? nameErr : "")%></p>
             <p class="invalid"><%=(numberErr != null ? numberErr : "")%></p>
             <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>            
-            
+
             <!-- Register Form -->
             <div class="form">
                 <form action="RegisterCustomerController" method="post">
