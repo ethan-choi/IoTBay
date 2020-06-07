@@ -87,8 +87,8 @@ public class RegisterStaffController extends HttpServlet {
 
                     //if user does not exist, create new user
                     manager.addUser(name, email, password, number, status, role);
-                    User student = new User(name, email, password, number, status, role);
-                    session.setAttribute("student", student);
+                    User user = new User(name, email, password, number, status, role);
+                    session.setAttribute("user", user);
                     request.getRequestDispatcher("main.jsp").include(request, response);
 
                     //create access log to record register action
