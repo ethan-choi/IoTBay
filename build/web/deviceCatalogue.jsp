@@ -106,7 +106,7 @@
                     </div>  
                 </c:when>
             </c:choose>
-
+                        
             <table class="deviceTable">
                 <thead>
                 <th> Product_ID </th>
