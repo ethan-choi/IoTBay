@@ -82,7 +82,7 @@
             </form>
                 
             <form action="DeviceCatalogue">
-                    <button class="standardbutton" type="submit" name="email" value="${student.email}">Catalogue</button>
+                    <button class="standardbutton" type="submit" name="email" value="${user.email}">Catalogue</button>
             </form>
                 
         </div>
