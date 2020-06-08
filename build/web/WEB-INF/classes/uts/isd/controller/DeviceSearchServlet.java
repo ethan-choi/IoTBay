@@ -17,6 +17,15 @@ import uts.isd.model.dao.DBManager;
  *
  * @author Jackie Lim
  */
+
+/**
+ * NOTE: deviceCatalogue.jsp & deviceSearch.jsp uses this servlet
+ * FUNCTION OF SERVLET - DeviceSearchServlet:-
+ * - Checks if user has not filled in the fields --> if so, error message will appear
+ * - Checks if user has filled in name ONLY --> if so, check if type is EMPTY and name are VALID for search
+ * - Checks if user has filled in type ONLY --> if so, check if name is EMPTY and type are VALID for search
+ * - Checks if user has filled in the fields --> if so, check if both are NOT EMPTY & are VALID for search
+ */
 public class DeviceSearchServlet extends HttpServlet {
     
     @Override
@@ -38,64 +47,146 @@ public class DeviceSearchServlet extends HttpServlet {
         ValidatorDevice validator = new ValidatorDevice();
         validator.clear(session);
         
-        if (choiceS != null) {
-            if(validator.checkEmpty(name, type)) {
-            session.setAttribute("existErr", "Please enter all fields");
-            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
-            } else if(!validator.validateName(name)) {
-                session.setAttribute("existErr", "Error found, please try again");
-                session.setAttribute("nameErr", "Name format is incorrect");
-                request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
-            } else if(!validator.validateType(type)) {
-                session.setAttribute("existErr", "Error found, please try again");
-                session.setAttribute("typeErr", "Type format is incorrect");
-                request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
-            } else {
-                try {
-                    deviceSearching = manager.findProductList(name, type);
-                    if (manager.checkProduct(name, type)) {
-                        session.setAttribute("deviceSearching", deviceSearching);
-                        request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
-                    } else {
-                        session.setAttribute("existErr", "Device does not exist");
-                        request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+        // Search button in deviceCatalogue.jsp --> search
+        if (choiceS != null) { 
+            // SEARCH BY TYPE
+            if (validator.checkEmptyName(name) && !validator.checkEmptyType(type)) {
+                if(!validator.validateType(type)) { 
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("typeErr", "Type format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else {
+                    try {
+                        deviceSearching = manager.findProductTypeList(type);
+                        if (manager.checkProductType(type)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device type either does not exist or spelt incorrectly (capitalisation matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (SQLException ex) {
-                    Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            
-        } 
+            // SEARCH BY NAME
+            } else if (validator.checkEmptyType(type) && !validator.checkEmptyName(name)) {
+                if(!validator.validateName(name)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("nameErr", "Name format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else { 
+                    try {
+                        deviceSearching = manager.findProductNameList(name);
+                        if (manager.checkProductName(name)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device either does not exist or spelt incorrectly (capitalisation and spacing matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else { // SEARCH BY NAME + TYPE
+                if(validator.checkEmpty(name, type)) {
+                session.setAttribute("existErr", "Search by name or type only, or both");
+                request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                } else if(!validator.validateName(name)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("nameErr", "Name format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else if(!validator.validateType(type)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("typeErr", "Type format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else {
+                    try {
+                    deviceSearching = manager.findProductList(name, type);
+                        if (manager.checkProduct(name, type)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device either does not exist or spelt incorrectly (capitalisation and spacing matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } 
+        }
         
+        // Search button in deviceSearch.jsp --> Search again
         else if (choiceSA != null )  { 
-            if(validator.checkEmpty(name, type)) {
-            session.setAttribute("existErr", "Please enter all fields");
-            request.getRequestDispatcher("deviceSearch.jsp").include(request, response);
-            } else if(!validator.validateName(name)) {
-                session.setAttribute("existErr", "Error found, please try again");
-                session.setAttribute("nameErr", "Name format is incorrect");
-                request.getRequestDispatcher("deviceSearch.jsp").include(request, response);
-            } else if(!validator.validateType(type)) {
-                session.setAttribute("existErr", "Error found, please try again");
-                session.setAttribute("typeErr", "Type format is incorrect");
-                request.getRequestDispatcher("deviceSearch.jsp").include(request, response);
-            } else {
-                try {
-                    deviceSearching = manager.findProductList(name, type);
-                    if (manager.checkProduct(name, type)) {
-                        session.setAttribute("deviceSearching", deviceSearching);
-                        request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
-                    } else {
-                        session.setAttribute("existErr", "Device does not exist");
-                        request.getRequestDispatcher("deviceSearch.jsp").include(request, response);
+            // SEARCH BY TYPE
+            if (validator.checkEmptyName(name) && !validator.checkEmptyType(type)) {
+                if(!validator.validateType(type)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("typeErr", "Type format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else {
+                    try {
+                        deviceSearching = manager.findProductTypeList(type);
+                        if (manager.checkProductType(type)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device type either does not exist or spelt incorrectly (capitalisation and spacing matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (SQLException ex) {
-                    Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-        }   
-    }
-    
+            // SEARCH BY NAME
+            } else if (validator.checkEmptyType(type) && !validator.checkEmptyName(name)) {
+                if(!validator.validateName(name)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("nameErr", "Name format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else { 
+                    try {
+                        deviceSearching = manager.findProductNameList(name);
+                        if (manager.checkProductName(name)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device either does not exist or spelt incorrectly (capitalisation and spacing matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else { // SEARCH BY NAME + TYPE
+                if(validator.checkEmpty(name, type)) {
+                session.setAttribute("existErr", "Search by name or type only, or both");
+                request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                } else if(!validator.validateName(name)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("nameErr", "Name format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else if(!validator.validateType(type)) {
+                    session.setAttribute("existErr", "Error found, enter fields again");
+                    session.setAttribute("typeErr", "Type format is incorrect");
+                    request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response); 
+                } else {
+                    try {
+                    deviceSearching = manager.findProductList(name, type);
+                        if (manager.checkProduct(name, type)) {
+                            session.setAttribute("deviceSearching", deviceSearching);
+                            request.getRequestDispatcher("deviceSearch.jsp").include(request ,response);
+                        } else {
+                            session.setAttribute("existErr", "Device either does not exist or spelt incorrectly (capitalisation and spacing matters!)");
+                            request.getRequestDispatcher("deviceCatalogue.jsp").include(request, response);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DeviceSearchServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } 
+        }
+    }   
 }
-
-    

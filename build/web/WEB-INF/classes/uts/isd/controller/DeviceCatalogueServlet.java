@@ -18,7 +18,7 @@ import uts.isd.model.dao.DBManager;
  *
  * @author Jackie Lim
  */
-public class DeviceCatalogue extends HttpServlet {
+public class DeviceCatalogueServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -52,7 +52,7 @@ public class DeviceCatalogue extends HttpServlet {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(DeviceCatalogue.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeviceCatalogueServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

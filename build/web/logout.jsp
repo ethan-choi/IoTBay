@@ -35,7 +35,7 @@
                 </c:choose>
             </div>
             <div class="navbar">
-                <form action="DeviceCatalogue">
+                <form action="DeviceCatalogueServlet">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
                     <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>

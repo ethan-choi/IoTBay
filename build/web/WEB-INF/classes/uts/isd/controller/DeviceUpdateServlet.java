@@ -35,7 +35,7 @@ public class DeviceUpdateServlet extends HttpServlet {
         ValidatorDevice validator = new ValidatorDevice();
         validator.clear(session);
 
-       if(validator.checkFields(name, type, price, manufacturer, quantity)) {    
+        if(validator.checkFields(name, type, price, manufacturer, quantity)) {    
             session.setAttribute("existErr", "Please enter all fields");
             request.getRequestDispatcher("deviceUpdate.jsp").include(request, response);
         } else if(!validator.validateName(name)) {

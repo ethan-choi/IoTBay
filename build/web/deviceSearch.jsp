@@ -39,7 +39,7 @@
                 </c:choose>
             </div>
             <div class="navbar">
-                <form action="DeviceCatalogue">
+                <form action="DeviceCatalogueServlet">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
                     <c:set var="val" value="${user.email}"/>
@@ -58,7 +58,7 @@
         </div>
         
         <div class="catalogue">
-            <a href="DeviceCatalogue"><p class="standardbutton">Back</p></a> 
+            <a href="DeviceCatalogueServlet"><p class="standardbutton">Back</p></a> 
             <p class="pagetitle">Search Results</p>
             <span class="invalid"> <%=(existErr != null ? existErr : "")%> </span>
             <div class="form">

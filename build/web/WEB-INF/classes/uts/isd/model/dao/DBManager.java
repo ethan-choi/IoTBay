@@ -263,6 +263,47 @@ public class DBManager {
         return temp;
     }
 
+    // Search by name
+    public ArrayList<Product> findProductNameList(String name) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            if (productName.equals(name)) {
+                Long product_id = rs.getLong(1);
+                String productType = rs.getString(5);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                temp.add(new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity));
+            }
+        }
+        return temp;
+    }
+    
+    // Search by type
+    public ArrayList<Product> findProductTypeList(String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE TYPE= '" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+
+        while (rs.next()) {
+            String productType = rs.getString(5);
+            if (productType.equals(type)) {
+                Long product_id = rs.getLong(1);
+                String productName = rs.getString(2);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                temp.add(new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity));
+            }
+        }
+        return temp;
+    }
+    
+    // Check product name + type
     public boolean checkProduct(String name, String type) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "' AND TYPE='" + type + "'";
         ResultSet rs = st.executeQuery(fetch);
@@ -271,6 +312,34 @@ public class DBManager {
             String productName = rs.getString(2);
             String productType = rs.getString(5);
             if (productName.equals(name) && productType.equals(type)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Check product name
+    public boolean checkProductName(String name) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            if (productName.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Check product type
+    public boolean checkProductType(String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE TYPE= '" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            String productType = rs.getString(5);
+            if (productType.equals(type)) {
                 return true;
             }
         }

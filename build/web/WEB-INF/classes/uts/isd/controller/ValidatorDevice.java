@@ -27,6 +27,14 @@ public class ValidatorDevice implements Serializable {
        return match.matches(); 
     }       
     
+    public boolean checkEmptyName(String name) {       
+       return name.isEmpty();
+    }
+    
+    public boolean checkEmptyType(String type) {       
+       return type.isEmpty();
+    }
+    
     public boolean checkEmpty(String name, String type) {       
        return name.isEmpty() || type.isEmpty();
     }

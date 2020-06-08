@@ -33,7 +33,7 @@
                 </c:choose>
             </div>
             <div class="navbar">
-                <form action="DeviceCatalogue">
+                <form action="DeviceCatalogueServlet">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
                     <c:set var="val" value="${user.email}"/>
@@ -67,7 +67,7 @@
                         </tr>
                     </table>
                         
-                    <a href="DeviceCatalogue"><p class="standardbutton">Cancel</p></a>  
+                    <a href="DeviceCatalogueServlet"><p class="standardbutton">Cancel</p></a>  
                     
                     <input class="submitbutton" type="submit" value="Delete">
 
