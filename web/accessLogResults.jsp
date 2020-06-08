@@ -51,7 +51,8 @@
         <!-- Content-->
         <div class="platform">
             <p class="pagetitle"> Access logs for ${user.name} </p>
-            <a href="accesslogs.jsp"> <p class="standardbutton"> Search again </p> </a>
+            <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
+            <a href="allAccessLogs.jsp"> <p class="standardbutton"> Search again </p> </a>
             <br>
             <br>
             <br>

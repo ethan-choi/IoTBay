@@ -44,11 +44,11 @@ public class AccessLogServlet extends HttpServlet {
         //Check to see if search query fields are empty
         if (validator.checkEmptyAccessLog(date)) {
             session.setAttribute("emptyErrUam", "Please enter all fields");
-            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+            request.getRequestDispatcher("allAccessLogs.jsp").include(request, response);
         } else if (!validator.validateDate(date)) {
             //Error if date is not in YYYY-MM-DD format
             session.setAttribute("existErr", "The date must be in YYYY-MM-DD format");
-            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+            request.getRequestDispatcher("allAccessLogs.jsp").include(request, response);
 
         } else {
             try {
@@ -57,7 +57,7 @@ public class AccessLogServlet extends HttpServlet {
                 //Error if no dates exist on the specified date
                 if (manager.checkAccessLogs(email, date) == false) {
                     session.setAttribute("existErr", "No records on this date");
-                    request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+                    request.getRequestDispatcher("allAccessLogs.jsp").include(request, response);
                     //Return access logs list to session
                 } else if (accesslogs != null) {
                     session.setAttribute("accesslogs", accesslogs);

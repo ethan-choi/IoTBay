@@ -92,13 +92,13 @@
             <!--Various buttons for different user actions -->
             <table class="maintable">
                 <thead>
-                <th colspan="2" >Account Management</th>
+                <th colspan="2" >Account Management Actions</th>
                 </thead>
             </table>
             <form action="AllAccessLogsServlet">
                 <a href="UserEditServlet?email='<%= user.getEmail()%>' &password = ' <%= user.getPassword()%>' &name = ' <%= user.getName()%>' &number = ' <%= user.getNumber()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${user.email}" class="standardbutton">   Access Logs </button>
-                <a href="deleteUser.jsp"> <p class="standardbutton"> Delete account </p> </a>
+                <a href="userDelete.jsp"> <p class="standardbutton"> Delete account </p> </a>
             </form>
         </div>
     </body> 

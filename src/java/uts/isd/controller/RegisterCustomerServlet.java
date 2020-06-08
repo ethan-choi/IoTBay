@@ -60,7 +60,7 @@ public class RegisterCustomerServlet extends HttpServlet {
             session.setAttribute("emptyErrUam", "Please enter all fields");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Your email address must include @ and .");
+            session.setAttribute("emailErr", "Your email address must include @");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");

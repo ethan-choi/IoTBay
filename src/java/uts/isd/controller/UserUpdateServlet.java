@@ -44,23 +44,23 @@ public class UserUpdateServlet extends HttpServlet {
         //Validators to check if fields or empty or using incorrect format
         if (validator.checkEmptyEdit(email, password, name, number)) {
             session.setAttribute("emptyErrUam", "Please enter all fields");
-            request.getRequestDispatcher("edit.jsp").include(request, response);
+            request.getRequestDispatcher("userEdit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Your email address must include @ and .");
-            request.getRequestDispatcher("edit.jsp").include(request, response);
+            session.setAttribute("emailErr", "Your email address must include @");
+            request.getRequestDispatcher("userEdit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");
-            request.getRequestDispatcher("edit.jsp").include(request, response);
+            request.getRequestDispatcher("userEdit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateName(name)) {
             session.setAttribute("UsernameErr", "Your name must not include numbers");
-            request.getRequestDispatcher("edit.jsp").include(request, response);
+            request.getRequestDispatcher("userEdit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
-            request.getRequestDispatcher("edit.jsp").include(request, response);
+            request.getRequestDispatcher("userEdit.jsp").include(request, response);
             validator.clear(session);
 
             //if inputs are ok
@@ -71,17 +71,17 @@ public class UserUpdateServlet extends HttpServlet {
                     session.setAttribute("user", user);
                     manager.updateUser(name, email, password, number, status, role);
                     session.setAttribute("updated", "Update was successful");
-                    request.getRequestDispatcher("edit.jsp").include(request, response);
+                    request.getRequestDispatcher("userEdit.jsp").include(request, response);
                     
                 } else {
                     //send error message if unsuccessful
                     session.setAttribute("updated", "Update was not successful");
-                    request.getRequestDispatcher("edit.jsp").include(request, response);
+                    request.getRequestDispatcher("userEdit.jsp").include(request, response);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("edit.jsp");
+            response.sendRedirect("userEdit.jsp");
         }
 
     }

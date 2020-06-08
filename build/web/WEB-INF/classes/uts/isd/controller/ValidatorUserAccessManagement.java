@@ -13,7 +13,7 @@ public class ValidatorUserAccessManagement implements Serializable {
 
     
     //Email must include @ and . characters
-    private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
+    private String emailPattern = "^(.+)@(.+)$";
     
     //Name must be only letters
     private String namePattern = "^[ A-Za-z]+$";

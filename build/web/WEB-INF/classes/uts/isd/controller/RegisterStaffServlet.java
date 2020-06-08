@@ -68,7 +68,7 @@ public class RegisterStaffServlet extends HttpServlet {
 
             //validate to ensure that fields have appropriate inputs. If not, return to registerCustomer.jsp and display error
         } else if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Your email address must include @ and .");
+            session.setAttribute("emailErr", "Your email address must include @");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");

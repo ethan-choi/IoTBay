@@ -47,14 +47,14 @@ public class UserEditServlet extends HttpServlet {
             if (user != null) {
                 //if user is found, send to session
                 session.setAttribute("user", user);
-                request.getRequestDispatcher("edit.jsp").include(request, response);
+                request.getRequestDispatcher("userEdit.jsp").include(request, response);
             } else {
                 //if user is not found, send error
                 session.setAttribute("existErr", "user does not exist in the database!");
-                request.getRequestDispatcher("edit.jsp)").include(request, response);
+                request.getRequestDispatcher("userEdit.jsp)").include(request, response);
             }
         } catch (SQLException ex) {
         }
-        request.getRequestDispatcher("edit.jsp").include(request, response);
+        request.getRequestDispatcher("userEdit.jsp").include(request, response);
     }
 }

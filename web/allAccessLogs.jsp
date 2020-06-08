@@ -67,6 +67,7 @@
                     <input type="text" id="date" name="date" value="" class="inputfield"> <br>
                     <p class="sublabelinput"> The date must be in YYYY-MM-DD format</p>
                     <input type="text" id="email" name="email" value="${user.email}" class="inputfield" readonly hidden> <br>
+                    <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
                     <input type="submit" value="Search" class="submitbutton">
                 </form>
                     

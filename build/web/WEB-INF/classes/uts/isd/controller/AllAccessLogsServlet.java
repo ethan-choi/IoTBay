@@ -48,7 +48,7 @@ public class AllAccessLogsServlet extends HttpServlet {
             
             //send results to session
             session.setAttribute("accesslogsall", accesslogsall);
-            request.getRequestDispatcher("accesslogs.jsp").include(request, response);
+            request.getRequestDispatcher("allAccessLogs.jsp").include(request, response);
 
         } catch (SQLException | NullPointerException ex) {
         }
