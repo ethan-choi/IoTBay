@@ -18,7 +18,7 @@
         String existErr = (String) session.getAttribute("existErr");
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
-        String nameErr = (String) session.getAttribute("nameErr");
+        String UsernameErr = (String) session.getAttribute("UsernameErr");
         String numberErr = (String) session.getAttribute("numberErr");
         String accessErr = (String) session.getAttribute("accessErr");
         String emptyErrUam = (String) session.getAttribute("emptyErrUam");
@@ -55,7 +55,7 @@
             <p class="invalid"><%=(existErr != null ? existErr : "")%> </p>
             <p class="invalid"><%=(passErr != null ? passErr : "")%> </p>
             <p class="invalid"><%=(emailErr != null ? emailErr : "")%></p>
-            <p class="invalid"><%=(nameErr != null ? nameErr : "")%></p>
+            <p class="invalid"><%=(UsernameErr != null ? UsernameErr : "")%></p>
             <p class="invalid"><%=(numberErr != null ? numberErr : "")%></p>
             <p class="invalid"><%=(accessErr != null ? accessErr : "")%></p>
             <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>
