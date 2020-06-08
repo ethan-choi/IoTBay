@@ -49,7 +49,7 @@ public class UpdateController extends HttpServlet {
             request.getRequestDispatcher("edit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateName(name)) {
-            session.setAttribute("nameErr", "Your name must not include numbers");
+            session.setAttribute("UsernameErr", "Your name must not include numbers");
             request.getRequestDispatcher("edit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateNumber(number)) {

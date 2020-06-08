@@ -77,5 +77,6 @@ public class ValidatorUserAccessManagement implements Serializable {
         session.setAttribute("accessErr", "");
         session.setAttribute("emptyErrUam", "");
         session.setAttribute("updated", "");
+        session.setAttribute("UsernameErr", "");
     }
 }

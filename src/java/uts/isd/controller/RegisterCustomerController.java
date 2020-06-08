@@ -60,7 +60,7 @@ public class RegisterCustomerController extends HttpServlet {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validateName(name)) {
-            session.setAttribute("nameErr", "Your name must not include numbers");
+            session.setAttribute("UsernameErr", "Your name must not include numbers");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
