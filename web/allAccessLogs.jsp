@@ -91,12 +91,14 @@
                 <p class="pagetitle2"> All access logs for ${user.name} </p>
                 <table class="maintable">
                     <thead>
+                    <th> ID </th>
                     <th> Date </th>
                     <th> Time </th>
                     <th> Action </th>
                     </thead>
                     <c:forEach items="${accesslogsall}" var="accesslog" >
                         <tr>
+                            <td><c:out value="${accesslog.id}"/></td>
                             <td><c:out value="${accesslog.date}"/></td>
                             <td><c:out value="${accesslog.time}"/></td>
                             <td><c:out value="${accesslog.action}"/> </td>

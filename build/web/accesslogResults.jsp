@@ -61,12 +61,14 @@
             <!--Table to display access log results -->
             <table class="maintable">
                 <thead>
+                <th> ID </th>
                 <th> Date </th>
                 <th> Time </th>
                 <th> Action </th>
                 </thead>
                 <c:forEach items="${accesslogs}" var="accesslog" >
                     <tr>
+                        <td><c:out value="${accesslog.id}"/></td>
                         <td><c:out value="${accesslog.date}"/></td>
                         <td><c:out value="${accesslog.time}"/></td>
                         <td><c:out value="${accesslog.action}"/> </td>

@@ -1,6 +1,5 @@
 /**
- * Author:  Jackie Lim
- * Created: 18/05/2020
+ * Author:  Ethan Choi
  */
 
 SELECT * FROM IOTUSER.USERS;

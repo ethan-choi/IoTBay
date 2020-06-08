@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
                     request.getRequestDispatcher("main.jsp").include(request, response);
                     //create login access log
                     manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(stringDate, time, action, email);
+
                 } else {
                     //return error and redirect to login.jsp if email does not match password in database
                     session.setAttribute("existErr", "Invalid email/password combination");
