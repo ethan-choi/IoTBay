@@ -42,7 +42,7 @@
             </div>
 
             <div class="navbar">
-                <form action="DeviceCatalogueServlet">
+                <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
 
