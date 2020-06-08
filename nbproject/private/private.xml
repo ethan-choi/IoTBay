@@ -3,15 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterStaffServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/LoginServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readUsers.sql</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readProducts.sql</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/style.css</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerCustomer.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerOption.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/logout.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterCustomerServlet.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ValidatorUserAccessManagement.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerStaff.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/login.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceUpdate.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ValidatorDevice.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/tableIOTdb.sql</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterCustomerServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerStaff.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/userEdit.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readAccessLogs.sql</file>
         </group>
     </open-files>
 </project-private>
