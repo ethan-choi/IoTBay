@@ -26,7 +26,7 @@
 
             ArrayList<Product> deviceList = (ArrayList<Product>) session.getAttribute("deviceList");
 
-            String existErr = (String) session.getAttribute("existErr");
+            String searchErr = (String) session.getAttribute("searchErr");
             String nameErr = (String) session.getAttribute("nameErr");
             String typeErr = (String) session.getAttribute("typeErr");
 
@@ -66,7 +66,7 @@
         <div class="catalogue"> 
             <p class="pagetitle">Device Catalogue</p>
             <p class="dSubheading"> Search: </p>
-            <span class="invalid"> <%=(existErr != null ? existErr : "")%> </span>
+            <span class="invalid"> <%=(searchErr != null ? searchErr : "")%> </span>
             <div class="form">
                 <form action="DeviceSearchServlet" method="get">
                     <label for="name" class="inputlabel">Device Name</label>
