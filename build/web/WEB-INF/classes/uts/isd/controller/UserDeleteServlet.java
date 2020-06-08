@@ -58,7 +58,6 @@ public class UserDeleteServlet extends HttpServlet {
 
                 //Create delete access log
                 manager.addAccessLog(stringDate, time, action, email);
-                accessLog accesslog = new accessLog(stringDate, time, action, email);
 
                 //Return to session
                 session.setAttribute("user", user);
