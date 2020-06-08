@@ -30,7 +30,7 @@
             </div>
 
             <div class="navbar">
-                <form action="DeviceCatalogue">
+                <form action="DeviceCatalogueServlet">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
 
@@ -58,7 +58,7 @@
 
         <div class="platform">
             <p class="pagetitle"> Welcome to IoT Bay </p>
-            <form action="DeviceCatalogue">
+            <form action="DeviceCatalogueServlet">
                 <button class="standardbutton" type="submit" value="Open"> Catalogue</button>
             </form>
 

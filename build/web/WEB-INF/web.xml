@@ -49,8 +49,8 @@
         <servlet-class>uts.isd.controller.AllAccessLogsServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeviceCatalogue</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceCatalogue</servlet-class>
+        <servlet-name>DeviceCatalogueServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceCatalogueServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddDeviceServlet</servlet-name>
@@ -129,8 +129,8 @@
         <url-pattern>/AllAccessLogsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeviceCatalogue</servlet-name>
-        <url-pattern>/DeviceCatalogue</url-pattern>
+        <servlet-name>DeviceCatalogueServlet</servlet-name>
+        <url-pattern>/DeviceCatalogueServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddDeviceServlet</servlet-name>
