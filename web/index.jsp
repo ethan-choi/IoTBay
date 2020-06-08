@@ -48,6 +48,8 @@
                             <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
                         </c:otherwise>
                     </c:choose>
+                            <a href="orderAdd.jsp"> <p class="navBarButton"> Order </p> </a>
+                            <a href="orderCart.jsp"> <p class="navBarButton"> Cart </p> </a>
                 </form>
 
 
