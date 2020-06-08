@@ -15,7 +15,7 @@
     </head>
     <body>
         <%
-            String success = (String) session.getAttribute("success");    
+            String success = (String) session.getAttribute("success");
             String existErr = (String) session.getAttribute("existErr");
             String nameErr = (String) session.getAttribute("nameErr");
             String priceErr = (String) session.getAttribute("priceErr");
@@ -23,7 +23,7 @@
             String typeErr = (String) session.getAttribute("typeErr");
             String quantityErr = (String) session.getAttribute("quantityErr");
         %>
-        
+
         <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
                 <c:set var="val" value="${user.email}"/>
                 <c:choose> 
@@ -53,14 +53,14 @@
                 </form>
             </div>
         </div>
-        
+
         <div class="platform"> 
             <p class="pagetitle">Add Device</p>
-            
+
             <br>
             <span class="invalid"> <%=(existErr != null ? existErr : "")%> </span>
             <span class="success"> <%=(success != null ? success : "")%> </span>
-            
+
             <div class="form">
                 <form method="post" action="DeviceAddServlet" >
                     <table class="maintable">   
@@ -85,13 +85,13 @@
                             <td colspan="2"><input class="dInputField" type="text" placeholder="<%=(quantityErr != null ? quantityErr : "Enter quantity")%>" id="quantity" name="quantity"></td>
                         </tr>
                     </table>
-                        
+
                     <a href="DeviceCatalogue"><p class="standardbutton">Cancel</p></a>
-                    
+
                     <input type="submit" value="Add" class="submitbutton">
                 </form>
             </div>
-                        
+
         </div>
     </body>
 </html>

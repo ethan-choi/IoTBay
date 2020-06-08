@@ -29,7 +29,7 @@
 
 
         <!-- Header -->
-       <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
+        <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
                 <c:set var="val" value="${user.email}"/>
                 <c:choose> 
                     <c:when test="${val != null}">
@@ -75,8 +75,8 @@
             <p class="pagetitle"> Search for Access Logs</p>
             <p class="invalid"> <%=(existErr != null ? existErr : "")%>  </p>
             <p class="invalid"> <%=(emptyErrUam != null ? emptyErrUam : "")%>  </p>
-            
-            
+
+
             <div class="form">
                 <form action="AccessLogServlet">             
                     <label for="email" class="inputlabel">Date</label><br>
@@ -86,7 +86,7 @@
                     <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
                     <input type="submit" value="Search" class="submitbutton">
                 </form>
-                    
+
                 <!--Table to show all access logs for the current user-->
                 <p class="pagetitle2"> All access logs for ${user.name} </p>
                 <table class="maintable">
