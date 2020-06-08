@@ -62,7 +62,7 @@
             
             
             <div class="form">
-                <form action="AccessLog">             
+                <form action="AccessLogServlet">             
                     <label for="email" class="inputlabel">Date</label><br>
                     <input type="text" id="date" name="date" value="" class="inputfield"> <br>
                     <p class="sublabelinput"> The date must be in YYYY-MM-DD format</p>

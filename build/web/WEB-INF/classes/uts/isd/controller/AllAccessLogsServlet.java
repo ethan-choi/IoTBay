@@ -25,7 +25,7 @@ import uts.isd.model.dao.DBManager;
 
 
 
-public class AllAccessLogsController extends HttpServlet {
+public class AllAccessLogsServlet extends HttpServlet {
 
     @Override
 

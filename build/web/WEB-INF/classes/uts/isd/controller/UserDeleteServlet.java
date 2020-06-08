@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.User;
+import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
 /**
  *
@@ -23,8 +24,8 @@ import uts.isd.model.dao.DBManager;
 
 
 
-//Purpose of this controller is to log user out of the system
-public class LogoutController extends HttpServlet {
+// Purpose of this controller is to set an account as "Inactive", essentially deleting the user from the system
+public class UserDeleteServlet extends HttpServlet {
 
     @Override
 
@@ -33,10 +34,10 @@ public class LogoutController extends HttpServlet {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
 
-        
-        //Get current email from session
+        //Get current email address in the session.
         String email = request.getParameter("email");
-        
+        String status = "Inactive";
+
         //Convert current date/time to seperate date and time string variables
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -44,17 +45,31 @@ public class LogoutController extends HttpServlet {
         String stringTime = timeFormat.format(date);
         String stringDate = dateFormat.format(date);
         String time = stringTime;
-        String action = "Logout";
+        String action = "Deactivate";
 
+        //Define user
         User user = null;
         try {
-            //log user out, create access log and redirect to index page
-            manager.addAccessLog(stringDate, time, action, email);
-            session.setAttribute("user", user);
-            request.getRequestDispatcher("index.jsp").include(request, response);
-        } catch (SQLException | NullPointerException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            //Call on findUserEmailOnly method and store results in user variable
+            user = manager.findUserEmailOnly(email);
+            if (user != null) {
+                //call on updateUserStatus to find the record by email and set status to "Inactive" as defined prior
+                manager.updateUserStatus(email, status);
 
+                //Create delete access log
+                manager.addAccessLog(stringDate, time, action, email);
+                accessLog accesslog = new accessLog(stringDate, time, action, email);
+
+                //Return to session
+                session.setAttribute("user", user);
+                session.invalidate();
+                request.getRequestDispatcher("index.jsp").include(request, response);
+            } else {
+                session.setAttribute("existErr", "User does not exist in Database!");
+                request.getRequestDispatcher("deleteuser.jsp").include(request, response);
+            }
+        } catch (SQLException | NullPointerException ex) {
+            Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

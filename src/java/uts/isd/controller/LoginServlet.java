@@ -17,9 +17,15 @@ import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to allow users to login to the system
-public class LoginController extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

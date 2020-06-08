@@ -11,9 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to update users' information
-public class UpdateController extends HttpServlet {
+public class UserUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +55,7 @@ public class UpdateController extends HttpServlet {
             request.getRequestDispatcher("edit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateName(name)) {
-            session.setAttribute("nameErr", "Your name must not include numbers");
+            session.setAttribute("UsernameErr", "Your name must not include numbers");
             request.getRequestDispatcher("edit.jsp").include(request, response);
             validator.clear(session);
         } else if (!validator.validateNumber(number)) {
@@ -73,7 +79,7 @@ public class UpdateController extends HttpServlet {
                     request.getRequestDispatcher("edit.jsp").include(request, response);
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             response.sendRedirect("edit.jsp");
         }

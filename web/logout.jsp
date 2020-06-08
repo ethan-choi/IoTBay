@@ -47,10 +47,10 @@
 
         <!--Content -->
         <div class="platform">
-            <form action="LogoutController">
+            <form action="LogoutServlet">
                 <p class ="pagetitle"> Are you sure you want to logout? </p>
                 <br>
-                <input type="hidden" id="email" name="email" value="${user.email}" class="inputfield" required readonly> <br>
+                <input type="hidden" id="email" name="email" value="${user.email}" class="inputfield" readonly> <br>
 
                 <a href="main.jsp"> <p class="alternateOption"> Cancel </p> </a>
 

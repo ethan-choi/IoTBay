@@ -22,7 +22,7 @@ import uts.isd.model.dao.DBManager;
 
 
 //Purpose of this controller is to obtain the user's current details
-public class EditController extends HttpServlet {
+public class UserEditServlet extends HttpServlet {
 
     @Override
 
@@ -54,8 +54,6 @@ public class EditController extends HttpServlet {
                 request.getRequestDispatcher("edit.jsp)").include(request, response);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
         }
         request.getRequestDispatcher("edit.jsp").include(request, response);
     }

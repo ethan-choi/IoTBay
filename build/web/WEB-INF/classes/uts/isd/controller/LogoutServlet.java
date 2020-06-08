@@ -16,9 +16,15 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to log user out of the system
-public class LogoutController extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     @Override
 
@@ -45,9 +51,10 @@ public class LogoutController extends HttpServlet {
             //log user out, create access log and redirect to index page
             manager.addAccessLog(stringDate, time, action, email);
             session.setAttribute("user", user);
+            session.invalidate();
             request.getRequestDispatcher("index.jsp").include(request, response);
         } catch (SQLException | NullPointerException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
     }

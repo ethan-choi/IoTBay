@@ -66,7 +66,7 @@
 
             <!-- Register Form -->
             <div class="form">
-                <form action="RegisterCustomerController" method="post">
+                <form action="RegisterCustomerServlet" method="post">
 
                     <label for="email" class="inputlabel">Email address</label><br>
                     <input type="text" id="email" name="email" class="inputfield" ><br>

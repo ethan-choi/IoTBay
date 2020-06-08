@@ -17,9 +17,15 @@ import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 // Purpose of this controller is to set an account as "Inactive", essentially deleting the user from the system
-public class DeleteUserController extends HttpServlet {
+public class UserDeleteServlet extends HttpServlet {
 
     @Override
 
@@ -56,13 +62,14 @@ public class DeleteUserController extends HttpServlet {
 
                 //Return to session
                 session.setAttribute("user", user);
+                session.invalidate();
                 request.getRequestDispatcher("index.jsp").include(request, response);
             } else {
                 session.setAttribute("existErr", "User does not exist in Database!");
                 request.getRequestDispatcher("deleteuser.jsp").include(request, response);
             }
         } catch (SQLException | NullPointerException ex) {
-            Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -25,7 +25,7 @@ import uts.isd.model.dao.DBManager;
 
 
 //Purpose of this controller is to allow staff members to create a new account with the IoT Bay System
-public class RegisterStaffController extends HttpServlet {
+public class RegisterStaffServlet extends HttpServlet {
 
     @Override
 
@@ -103,7 +103,7 @@ public class RegisterStaffController extends HttpServlet {
                 }
 
             } catch (SQLException | NullPointerException ex) {
-                Logger.getLogger(RegisterStaffController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegisterStaffServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
             validator.clear (session);

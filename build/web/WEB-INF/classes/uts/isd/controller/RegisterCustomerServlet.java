@@ -17,9 +17,15 @@ import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to allow customers to register a new account
-public class RegisterCustomerController extends HttpServlet {
+public class RegisterCustomerServlet extends HttpServlet {
 
     @Override
 
@@ -60,7 +66,7 @@ public class RegisterCustomerController extends HttpServlet {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validateName(name)) {
-            session.setAttribute("nameErr", "Your name must not include numbers");
+            session.setAttribute("UsernameErr", "Your name must not include numbers");
             request.getRequestDispatcher("registerCustomer.jsp").include(request, response);
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");
@@ -87,7 +93,7 @@ public class RegisterCustomerController extends HttpServlet {
                     accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
             } catch (SQLException | NullPointerException ex) {
-                Logger.getLogger(RegisterCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegisterCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         validator.clear(session);

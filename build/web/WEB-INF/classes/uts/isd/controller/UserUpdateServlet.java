@@ -19,7 +19,7 @@ import uts.isd.model.dao.DBManager;
 
 
 //Purpose of this controller is to update users' information
-public class UpdateController extends HttpServlet {
+public class UserUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -79,7 +79,7 @@ public class UpdateController extends HttpServlet {
                     request.getRequestDispatcher("edit.jsp").include(request, response);
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(EditController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             response.sendRedirect("edit.jsp");
         }

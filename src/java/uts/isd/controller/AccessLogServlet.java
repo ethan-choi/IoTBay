@@ -22,7 +22,7 @@ import uts.isd.model.dao.DBManager;
 
 
 //Purpose of this controller is the search for access logs according to a date
-public class AccessLog extends HttpServlet {
+public class AccessLogServlet extends HttpServlet {
 
     @Override
 

@@ -66,7 +66,7 @@
         <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>            
         <!--Update details form-->
         <div class="form">
-            <form action="UpdateController">
+            <form action="UserUpdateServlet">
                 <input type="hidden" id="email" name="email" value="${user.email}" class="inputfield" readonly> <br>
 
                 <label for="password" class="inputlabel">Password</label><br>

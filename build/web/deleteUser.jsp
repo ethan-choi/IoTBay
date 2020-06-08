@@ -49,7 +49,7 @@
         <div class="platform">
             <p class="pagetitle"> Delete Account </p>
             <div class="form">
-                <form action="DeleteUserController">
+                <form action="UserDeleteServlet">
                     <input type="hidden" id="email" name="email" value="${user.email}" class="inputfield" readonly> <br>
                     <p class="bodytext"> Are you sure you want to delete your account? </p>
                     <p class="bodytext"> All orders associated with this account will be cancelled. Your personal information, delivery address information and payment information will be deleted. </p>

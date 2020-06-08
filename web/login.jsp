@@ -62,7 +62,7 @@
             <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>
             <!--Login form -->
             <div class="form">
-                <form action="LoginController" method="post">
+                <form action="LoginServlet" method="post">
                     <label for="email" class="inputlabel">Email Address</label><br>
                     <input type="text" id="fname"  name="email" class="inputfield" ><br>
 

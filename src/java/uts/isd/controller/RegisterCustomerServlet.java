@@ -25,7 +25,7 @@ import uts.isd.model.dao.DBManager;
 
 
 //Purpose of this controller is to allow customers to register a new account
-public class RegisterCustomerController extends HttpServlet {
+public class RegisterCustomerServlet extends HttpServlet {
 
     @Override
 
@@ -93,7 +93,7 @@ public class RegisterCustomerController extends HttpServlet {
                     accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
             } catch (SQLException | NullPointerException ex) {
-                Logger.getLogger(RegisterCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegisterCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         validator.clear(session);

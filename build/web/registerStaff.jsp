@@ -61,7 +61,7 @@
             <p class="invalid"><%=(emptyErrUam != null ? emptyErrUam : "")%></p>
             <!-- Register form -->
             <div class="form">
-                <form action="RegisterStaffController" method="post">
+                <form action="RegisterStaffServlet" method="post">
 
                     <!-- Check to see if staff access key is correct and validate that the user is an actual staff member -->
                     <!-- For the purpose of this assignment, it is 123 -->
