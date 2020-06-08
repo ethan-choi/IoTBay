@@ -167,7 +167,7 @@ public class DBManager {
     public String checkRole(String email) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.USERS WHERE EMAIL = '" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
-
+        
         while (rs.next()) {
             String userEmail = rs.getString(2);
             if (userEmail.equals(email)) {
@@ -176,12 +176,30 @@ public class DBManager {
         }
         return null;
     }
-
+    
     //-- Product / Device Database Manager --\\
     public void addProduct(String name, double price, String manufacturer, String type, int quantity_in_stock) throws SQLException {
         st.executeUpdate("INSERT INTO IOTUSER.PRODUCT(NAME, PRICE, MANUFACTURER, TYPE, QUANTITY_IN_STOCK)" + "VALUES ('" + name + "', " + price + ", '" + manufacturer + "', '" + type + "', " + quantity_in_stock + ")");
     }
-
+    
+    // Find product only by its name
+    public Product findProductName(String name) throws SQLException {
+        String read = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME = '" + name + "'";
+        ResultSet rs = st.executeQuery(read);
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            if (productName.equals(name)) {
+                String productType = rs.getString(5);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                return new Product(productName, productPrice, productManufacturer, productType, productQuantity);
+            }
+        }
+        return null;
+    }
+    
+    // Find product based on name & type
     public Product findProduct(String name, String type) throws SQLException {
         String read = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME = '" + name + "' AND TYPE='" + type + "'";
         ResultSet rs = st.executeQuery(read);
@@ -197,11 +215,12 @@ public class DBManager {
         }
         return null;
     }
-
+    
+    // Find product based on their ID
     public Product findProductID(long id) throws SQLException {
         String read = "SELECT * FROM IOTUSER.PRODUCT";
         ResultSet rs = st.executeQuery(read);
-        while (rs.next()) {
+        while(rs.next()) {
             Long product_id = rs.getLong(1);
             if (product_id == id) {
                 String productName = rs.getString(2);
@@ -214,15 +233,18 @@ public class DBManager {
         }
         return null;
     }
-
-    public void updateProduct(String name, double price, String manufacturer, String type, int quantity) throws SQLException {
-        st.executeUpdate("UPDATE IOTUSER.PRODUCT SET PRICE=" + price + ", MANUFACTURER='" + manufacturer + "', TYPE='" + type + "', QUANTITY_IN_STOCK=" + quantity + " WHERE NAME='" + name + "'");
+    
+    // SQL query to update product details based on ID
+    public void updateProductID(long id, String name, double price, String manufacturer, String type, int quantity) throws SQLException { // WHERE NAME='" + name + "'"
+        st.executeUpdate("UPDATE IOTUSER.PRODUCT SET NAME='" + name + "', PRICE= " + price + ", MANUFACTURER= '" + manufacturer + "', TYPE= '" + type + "', QUANTITY_IN_STOCK= " + quantity + " WHERE PRODUCT_ID = " + id + "");
     }
-
+    
+    // SQL query to delete a product based on name
     public void deleteProduct(String name) throws SQLException {
         st.executeUpdate("DELETE FROM IOTUSER.PRODUCT WHERE NAME='" + name + "'");
     }
-
+    
+    // Used to fetch all products stored in the database
     public ArrayList<Product> fetchProducts() throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.PRODUCT";
         ResultSet rs = st.executeQuery(fetch);
@@ -239,7 +261,9 @@ public class DBManager {
         }
         return temp;
     }
+    
 
+    // Search by name & type -- kinda redundant but search has two input fields anyways
     public ArrayList<Product> findProductList(String name, String type) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "' AND TYPE='" + type + "'";
         ResultSet rs = st.executeQuery(fetch);
@@ -258,7 +282,48 @@ public class DBManager {
         }
         return temp;
     }
+    
+    // Search by name
+    public ArrayList<Product> findProductNameList(String name) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
 
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            if (productName.equals(name)) {
+                Long product_id = rs.getLong(1);
+                String productType = rs.getString(5);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                temp.add(new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity));
+            }
+        }
+        return temp;
+    }
+    
+    // Search by type
+    public ArrayList<Product> findProductTypeList(String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE TYPE= '" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> temp = new ArrayList();
+
+        while (rs.next()) {
+            String productType = rs.getString(5);
+            if (productType.equals(type)) {
+                Long product_id = rs.getLong(1);
+                String productName = rs.getString(2);
+                double productPrice = rs.getDouble(3);
+                String productManufacturer = rs.getString(4);
+                int productQuantity = rs.getInt(6);
+                temp.add(new Product(product_id, productName, productPrice, productManufacturer, productType, productQuantity));
+            }
+        }
+        return temp;
+    }
+    
+    // Check product name + type
     public boolean checkProduct(String name, String type) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "' AND TYPE='" + type + "'";
         ResultSet rs = st.executeQuery(fetch);
@@ -272,5 +337,47 @@ public class DBManager {
         }
         return false;
     }
+    
+    // Check product name
+    public boolean checkProductName(String name) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE NAME= '" + name + "'";
+        ResultSet rs = st.executeQuery(fetch);
 
+        while (rs.next()) {
+            String productName = rs.getString(2);
+            if (productName.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Check product type
+    public boolean checkProductType(String type) throws SQLException {
+        String fetch = "SELECT * FROM IOTUSER.PRODUCT WHERE TYPE= '" + type + "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            String productType = rs.getString(5);
+            if (productType.equals(type)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // Check product id
+    public boolean checkProductID(long id) throws SQLException {
+        String read = "SELECT * FROM IOTUSER.PRODUCT";
+        ResultSet rs = st.executeQuery(read);
+
+        while (rs.next()) {
+            Long productID = rs.getLong(1);
+            if (productID == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
