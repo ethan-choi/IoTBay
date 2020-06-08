@@ -20,7 +20,7 @@
             Product product = (Product)session.getAttribute("product");
             
             String success = (String)session.getAttribute("success"); 
-            String existErr = (String) session.getAttribute("existErr");
+            String searchErr = (String) session.getAttribute("searchErr");
             String nameErr = (String) session.getAttribute("nameErr");
             String typeErr = (String) session.getAttribute("typeErr");
             
@@ -60,7 +60,7 @@
         <div class="catalogue">
             <a href="DeviceCatalogueServlet"><p class="standardbutton">Back</p></a> 
             <p class="pagetitle">Search Results</p>
-            <span class="invalid"> <%=(existErr != null ? existErr : "")%> </span>
+            <span class="invalid"> <%=(searchErr != null ? searchErr : "")%> </span>
             <div class="form">
                 <form action="DeviceSearchServlet" method="get">
                     <label for="name" class="inputlabel">Device Name</label>
