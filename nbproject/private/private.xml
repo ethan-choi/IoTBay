@@ -3,46 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/LogoutController.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/AllAccessLogsController.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterStaffServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/UserEditServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/model/dao/DBManager.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readUsers.sql</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readProducts.sql</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/TestDB.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerCustomer.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/login.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceUpdate.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/LoginController.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceDeleteServlet.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/edit.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ValidatorDevice.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceResetController.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deleteUser.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/index.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/accessLogResults.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceAdd.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/accesslogResults.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/index.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceDelete.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceCatalogue.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceSearchServlet.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/searchDevice.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/AllAccessLogsServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/UserDeleteServlet.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceAddServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/LoginServlet.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/logo.png</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterCustomerController.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/style.css</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerOption.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/userDelete.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/logout.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeviceUpdateServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerOption.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/AccessLogServlet.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ValidatorUserAccessManagement.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceSearch.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/DeleteUserController.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/AccessLog.java</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/ConnServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/LogoutServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterCustomerServlet.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/main.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/EditController.java</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/registerStaff.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/RegisterStaffController.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/userEdit.jsp</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/UserUpdateServlet.java</file>
+            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/allAccessLogs.jsp</file>
             <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/db/readAccessLogs.sql</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/accesslogs.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/web/deviceCatalogue.jsp</file>
-            <file>file:/C:/Users/ethan/Documents/GitHub/IoTBay/src/java/uts/isd/controller/UpdateController.java</file>
         </group>
     </open-files>
 </project-private>
