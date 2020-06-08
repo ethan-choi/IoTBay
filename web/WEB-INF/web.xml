@@ -29,10 +29,6 @@
         <servlet-class>uts.isd.controller.RegisterStaffServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateAccessLogController</servlet-name>
-        <servlet-class>uts.isd.controller.CreateAccessLogController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AccessLogServlet</servlet-name>
         <servlet-class>uts.isd.controller.AccessLogServlet</servlet-class>
     </servlet>
@@ -107,10 +103,6 @@
     <servlet-mapping>
         <servlet-name>RegisterStaffServlet</servlet-name>
         <url-pattern>/RegisterStaffServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateAccessLogController</servlet-name>
-        <url-pattern>/CreateAccessLogController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AccessLogServlet</servlet-name>
