@@ -61,7 +61,7 @@ public class AccessLogServlet extends HttpServlet {
                     //Return access logs list to session
                 } else if (accesslogs != null) {
                     session.setAttribute("accesslogs", accesslogs);
-                    request.getRequestDispatcher("accesslogResults.jsp").include(request, response);
+                    request.getRequestDispatcher("accessLogResults.jsp").include(request, response);
                 }
             } catch (SQLException | NullPointerException ex) {
 

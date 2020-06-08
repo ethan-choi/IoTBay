@@ -1,3 +1,12 @@
+/**
+ * Author:  Ethan Choi
+ *  For the purpose of this assignment, sample access logs have only been entered for five users
+ */
+
+
+
+
+
 INSERT INTO ACCESSLOG ("DATE", "TIME", "ACTION", EMAIL)
 VALUES
 ('2020-05-30', '04:09:02', 'Register', 'bob.smith@email.com' ),

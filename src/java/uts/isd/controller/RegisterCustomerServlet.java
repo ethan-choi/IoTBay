@@ -90,7 +90,7 @@ public class RegisterCustomerServlet extends HttpServlet {
 
                     //create register access log
                     manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(stringDate, time, action, email);
+
                 }
             } catch (SQLException | NullPointerException ex) {
                 Logger.getLogger(RegisterCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
