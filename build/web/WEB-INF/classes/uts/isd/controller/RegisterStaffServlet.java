@@ -99,7 +99,6 @@ public class RegisterStaffServlet extends HttpServlet {
 
                     //create access log to record register action
                     manager.addAccessLog(stringDate, time, action, email);
-                    accessLog accesslog = new accessLog(stringDate, time, action, email);
                 }
 
             } catch (SQLException | NullPointerException ex) {

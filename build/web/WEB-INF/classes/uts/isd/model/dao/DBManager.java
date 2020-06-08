@@ -12,8 +12,8 @@ public class DBManager {
 
     public DBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
-    } 
-    
+    }
+
     //-- User Access Management --\\
     //Find a user using email and password
     public User findUser(String email, String password) throws SQLException {
@@ -91,7 +91,7 @@ public class DBManager {
 
     //Cretae new access log
     public void addAccessLog(String date, String time, String action, String email) throws SQLException {
-        st.executeUpdate("INSERT INTO iotuser.ACCESSLOG " + "VALUES ('" + date + "', '" + time + "', '" + action + "', '" + email + "')");
+        st.executeUpdate("INSERT INTO iotuser.ACCESSLOG(date, time, action, email)" + "VALUES ('" + date + "', '" + time + "', '" + action + "', '" + email + "')");
 
     }
 
@@ -102,17 +102,17 @@ public class DBManager {
         ArrayList<accessLog> temp = new ArrayList();
 
         while (rs.next()) {
-            String date = rs.getString(1);
-            String time = rs.getString(2);
-            String action = rs.getString(3);
-            String email = rs.getString(4);
-            temp.add(new accessLog(date, time, action, email));
+            String id = rs.getString(1);
+            String date = rs.getString(2);
+            String time = rs.getString(3);
+            String action = rs.getString(4);
+            String email = rs.getString(5);
+            temp.add(new accessLog(id, date, time, action, email));
         }
 
         return temp;
     }
 
-    
     //Find an access log by email and date
     public ArrayList<accessLog> findAccessLog(String email, String date) throws SQLException {
         String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
@@ -120,26 +120,26 @@ public class DBManager {
         ArrayList<accessLog> temp = new ArrayList();
 
         while (rs.next()) {
-            String userEmail = rs.getString(4);
-            String userDate = rs.getString(1);
+            String userEmail = rs.getString(5);
+            String userDate = rs.getString(2);
             if (userEmail.equals(email) && userDate.equals(date)) {
-                String time = rs.getString(2);
-                String action = rs.getString(3);
-                temp.add(new accessLog(userDate, time, action, userEmail));
+                String time = rs.getString(3);
+                String action = rs.getString(4);
+                String id = rs.getString(1);
+                temp.add(new accessLog(id, userDate, time, action, userEmail));
             }
         }
         return temp;
     }
 
-    
     //Check to see if access log exists
     public boolean checkAccessLogs(String email, String date) throws SQLException {
         String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "' and date = '" + date + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
-            String userEmail = rs.getString(4);
-            String userDate = rs.getString(1);
+            String userEmail = rs.getString(5);
+            String userDate = rs.getString(2);
             if (userEmail.equals(email) && userDate.equals(date)) {
                 return true;
             }
@@ -147,7 +147,6 @@ public class DBManager {
         return false;
     }
 
-    
     //Find access logs by an email only
     public ArrayList<accessLog> listAccessLogsUser(String email) throws SQLException {
         String fetch = "select * from iotuser.accesslog where EMAIL = '" + email + "'";
@@ -155,22 +154,20 @@ public class DBManager {
         ArrayList<accessLog> temp = new ArrayList();
 
         while (rs.next()) {
-            String date = rs.getString(1);
-            String time = rs.getString(2);
-            String action = rs.getString(3);
-            temp.add(new accessLog(date, time, action, email));
+            String date = rs.getString(2);
+            String id = rs.getString(1);
+            String time = rs.getString(3);
+            String action = rs.getString(4);
+            temp.add(new accessLog(id, date, time, action, email));
         }
         return temp;
     }
-    
-    
-    
+
     //-- Check User's Role --\\
-       
     public String checkRole(String email) throws SQLException {
         String fetch = "SELECT * FROM IOTUSER.USERS WHERE EMAIL = '" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
-        
+
         while (rs.next()) {
             String userEmail = rs.getString(2);
             if (userEmail.equals(email)) {
@@ -179,8 +176,7 @@ public class DBManager {
         }
         return null;
     }
-    
-    
+
     //-- Product / Device Database Manager --\\
     public void addProduct(String name, double price, String manufacturer, String type, int quantity_in_stock) throws SQLException {
         st.executeUpdate("INSERT INTO IOTUSER.PRODUCT(NAME, PRICE, MANUFACTURER, TYPE, QUANTITY_IN_STOCK)" + "VALUES ('" + name + "', " + price + ", '" + manufacturer + "', '" + type + "', " + quantity_in_stock + ")");
@@ -201,11 +197,11 @@ public class DBManager {
         }
         return null;
     }
-    
+
     public Product findProductID(long id) throws SQLException {
         String read = "SELECT * FROM IOTUSER.PRODUCT";
         ResultSet rs = st.executeQuery(read);
-        while(rs.next()) {
+        while (rs.next()) {
             Long product_id = rs.getLong(1);
             if (product_id == id) {
                 String productName = rs.getString(2);
@@ -218,7 +214,7 @@ public class DBManager {
         }
         return null;
     }
-    
+
     public void updateProduct(String name, double price, String manufacturer, String type, int quantity) throws SQLException {
         st.executeUpdate("UPDATE IOTUSER.PRODUCT SET PRICE=" + price + ", MANUFACTURER='" + manufacturer + "', TYPE='" + type + "', QUANTITY_IN_STOCK=" + quantity + " WHERE NAME='" + name + "'");
     }
