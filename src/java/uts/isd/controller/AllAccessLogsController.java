@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this servlet is to obtain all access logs for a specific account which is identified by email
 

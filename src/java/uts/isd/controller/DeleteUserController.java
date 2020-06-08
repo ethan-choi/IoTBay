@@ -17,6 +17,12 @@ import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 // Purpose of this controller is to set an account as "Inactive", essentially deleting the user from the system
 public class DeleteUserController extends HttpServlet {

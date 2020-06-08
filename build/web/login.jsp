@@ -2,6 +2,8 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 
+<!-- Author: Ethan Choi -->
+
 
 <!-- Purpose of this page is to allow users to login to IoT Bay-->
 

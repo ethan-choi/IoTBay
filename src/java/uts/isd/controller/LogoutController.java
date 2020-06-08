@@ -16,6 +16,12 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to log user out of the system
 public class LogoutController extends HttpServlet {

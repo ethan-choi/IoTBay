@@ -5,6 +5,8 @@
 <%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
+<!-- Author: Ethan Choi -->
+
 
 <!-- Purpose of this page is to display account information and provide link to other account actions -->
 <html>

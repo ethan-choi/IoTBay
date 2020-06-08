@@ -17,6 +17,12 @@ import uts.isd.model.User;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is to allow staff members to create a new account with the IoT Bay System
 public class RegisterStaffController extends HttpServlet {
@@ -68,7 +74,7 @@ public class RegisterStaffController extends HttpServlet {
             session.setAttribute("passErr", "Your password must have at least 5 letters and/or numbers and no spaces");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
         } else if (!validator.validateName(name)) {
-            session.setAttribute("UsernameErr", "Your name must not include numbers");
+            session.setAttribute("nameErr", "Your name must not include numbers");
             request.getRequestDispatcher("registerStaff.jsp").include(request, response);
         } else if (!validator.validateNumber(number)) {
             session.setAttribute("numberErr", "Your mobile number must be 10 digits long");

@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 
+<!-- Author: Ethan Choi -->
+
 
 <!-- Purpose of this page is to allow users to edit their account details-->
 <html>

@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.accessLog;
 import uts.isd.model.dao.DBManager;
+/**
+ *
+ * @author Ethan Choi
+ */
+
+
 
 //Purpose of this controller is the search for access logs according to a date
 public class AccessLog extends HttpServlet {

@@ -6,6 +6,8 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 
+<!-- Author: Ethan Choi -->
+
 
 <!-- Purpose of this page is to show all access logs for a certain user and give them a search bar to search by date-->
 <html>

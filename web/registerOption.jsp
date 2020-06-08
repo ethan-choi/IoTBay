@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
+<!-- Author: Ethan Choi -->
+
 
 
 <!-- Purpose of this page is to allow users to choose if they want to register a staff or customer account-->
