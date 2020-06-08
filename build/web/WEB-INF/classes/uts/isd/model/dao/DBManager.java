@@ -380,4 +380,39 @@ public class DBManager {
         return false;
     }
     
+       //Adds order to the table//
+    public void addOrders(int orderId, int orderTime, int orderDate, int shippingDate, int shippingTime, String status, String email, String shippingId, String paymentId) throws SQLException {
+        st.executeUpdate("INSERT INTO iotuser.Orders " + "VALUES ('" + orderId + "', '" + orderTime + "', '" + orderDate + "', '" + shippingDate + "',  '" + status + "',  '" + email + "',  '" + shippingId + "',  '" + paymentId + "')");
+
+    }
+    
+    //updates saved orders//
+     public void updateOrderDetail(int quantity, double totalPrice) throws SQLException {
+        st.executeUpdate("UPDATE iotuser.OrderDetails SET Quantity ='" + quantity + "',TOTAL_PRICE='" + totalPrice + "'");
+    }
+
+     /// search for orders via order_id and Order_date///
+     public User findOrders(int orderId, int orderDate) throws SQLException {
+        String fetch = "select * from iotuser.Orders where ORDER_ID = '" + orderId + "' and ORDER_DATE = '" + orderDate + "'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            String OrderId = rs.getString(2);
+            String OrderDate = rs.getString(3);
+            if (OrderId.equals(orderId) && OrderDate.equals(orderDate)) {
+                String idOrder = rs.getString(6);
+                String dateOrder = rs.getString(6);
+                String timeOrder = rs.getString(6);
+                String statusOrder = rs.getString(6);
+                String shippedTime = rs.getString(6);
+                String shippedDate = rs.getString(6);
+                String EMAIL= rs.getString(6);
+                String SHIPPEDID = rs.getString(6);
+                String PaymentID = rs.getString(6);
+                //return new Orders(Integer.parseInt(idOrder), Integer.parseInt(dateOrder),Integer.parseInt(timeOrder), Integer.parseInt(statusOrder),Integer.parseInt(shippedTime), shippedDate, EMAIL, SHIPPEDID, PaymentID);
+            }
+        }
+        return null;
+    }
+    
 }

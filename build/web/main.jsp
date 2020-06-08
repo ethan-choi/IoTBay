@@ -99,6 +99,7 @@
                 <a href="UserEditServlet?email='<%= user.getEmail()%>' &password = ' <%= user.getPassword()%>' &name = ' <%= user.getName()%>' &number = ' <%= user.getNumber()%>'"> <p class="standardbutton"> Edit details </p> </a>
                 <button type="submit" name="email" value="${user.email}" class="standardbutton">   Access Logs </button>
                 <a href="userDelete.jsp"> <p class="standardbutton"> Delete account </p> </a>
+                <a href="paymentdetail.jsp"> <p class="standardbutton"> Payment Detail</p> </a>
             </form>
         </div>
     </body> 
