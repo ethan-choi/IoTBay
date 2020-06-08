@@ -29,7 +29,7 @@
 
 
         <!-- Header -->
-        <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
+       <div class="header"> <div class="wrapper"> <p class="headertext"> IoT Bay </p> <img class="logo" src="logo.png" alt="logo"> 
                 <c:set var="val" value="${user.email}"/>
                 <c:choose> 
                     <c:when test="${val != null}">
@@ -40,16 +40,32 @@
                     </c:otherwise>
                 </c:choose>
             </div>
+
             <div class="navbar">
                 <form action="DeviceCatalogue">
                     <a href="index.jsp"> <p class="navBarButton"> Home </p> </a>
                     <button class="navBarButtoncatalogue" type="submit" value="Open"> Catalogue </button>
-                    <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
-                    <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
-                </form>
-            </div>
-        </div>  
 
+                    <!-- If user is logged in i.e. if email session is not empty, display accocunt and logout buttons-->
+                    <!-- If user is not logged in in i.e. if email session is  empty, display login and register buttons-->
+                    <c:set var="val" value="${user.email}"/>
+                    <c:choose> 
+
+                        <c:when test="${val != null}">
+                            <a href="main.jsp"> <p class="navBarButton"> Account </p> </a>
+                            <a href="logout.jsp"> <p class="navBarButton"> Log out </p> </a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="login.jsp"> <p class="navBarButton"> Log in </p> </a>
+                            <a href="registerOption.jsp"> <p class="navBarButton"> Register </p> </a>
+                        </c:otherwise>
+                    </c:choose>
+                </form>
+
+
+
+            </div>
+        </div>
 
         <!--Content -->
         <div class="platform">
