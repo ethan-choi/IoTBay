@@ -6,7 +6,7 @@ html, body {
 }
 
 html {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .success{
@@ -466,14 +466,14 @@ a:active {
 
 /* Device Catalogue */
 .deviceTable {
-        font-size: 40px;
-        font-family: open sans;
-        padding: 1% 20% 1% 20%;
-        table-layout: fixed ;
-        width: 100% ;
-        border-collapse: collapse;
-        text-align: left;
-        margin-top: 10%;
+    font-size: 40px;
+    font-family: open sans;
+    padding: 1% 20% 1% 20%;
+    table-layout: fixed ;
+    width: 100% ;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 10%;
 }
 
 .deviceTable thead {
@@ -481,21 +481,21 @@ a:active {
 }
 
 .deviceTable th {
-        background: #5A8EF6;
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 100%;
-        color: white;
-        border: 1px solid #5A8EF6;
-    }
-    
-.deviceTable td {
-        background: white;
-        font-size: 20px;
-        padding: 1%;
+    background: #5A8EF6;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 100%;
+    color: white;
+    border: 1px solid #5A8EF6;
+}
 
-    }
-    
+.deviceTable td {
+    background: white;
+    font-size: 20px;
+    padding: 1%;
+
+}
+
 .catalogue {
     background: white;
     margin: 5% 7% 5% 7%;
@@ -535,7 +535,7 @@ a:active {
 }
 
 .deviceManagement li {
-  
+
     display: inline-block;
     float:left;
     padding-left: 4.5%;
